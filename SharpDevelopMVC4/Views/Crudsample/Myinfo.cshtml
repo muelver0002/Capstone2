@@ -1,0 +1,48 @@
+﻿@model List<SharpDevelopMVC4.Models.Product>
+@{
+	ViewBag.Title = "Myinfo";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @if (Request.IsAuthenticated)
+     {
+<h2>Myinfo</h2>
+
+ <div class="table-responsive" >   
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Location</th>
+                <th>Contact</th>
+                 <th>OpenHours</th>
+               
+              
+                   <th>Status</th>
+                  <th>Photo</th>
+                 
+                  
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+
+	                <td>@product.Name</td>
+	                <td>@product.Address<br>@product.AddCity</td>
+	                <td>@product.contactInfo</td>
+	                <td>@product.Unit</td>
+	                
+	                   <td>@product.Status </td>
+	                <td>
+	                	<img src="/uploadedimages/thumb/@product.PictureFilename" class="img-rounded" title="@product.Name" />
+	                </td>
+	              
+	            </tr>
+			}
+        </tbody>
+    </table>
+          </div>
+  
+  }

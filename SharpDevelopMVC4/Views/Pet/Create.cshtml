@@ -1,0 +1,55 @@
+﻿@{
+	ViewBag.Title = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @if (Request.IsAuthenticated)
+     {
+<h2>Create</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <section>
+        
+            <form action="/pet/create" method="post">
+            	 
+            	 <div class="form-group">
+                    <label >Pet Name</label>
+                    <input class="form-control" type="text" id="PetName" name="PetName" required />
+                </div>  
+               
+               <div class="form-group">
+                    <label >Owners Fullname</label>
+                    <input class="form-control" type="text" id="OwnersName" name="OwnersName" required/>
+                </div>
+                
+                 <div class="form-group">
+                    <label >Breed:</label>
+                    <input class="form-control" type="text" id="Breed" name="Breed"  required/>
+                   
+                </div>
+
+                <div class="form-group">
+                    <label >Type</label>
+                    <input class="form-control" type="text" id="Type" name="Type" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label >Color</label>
+                    <input class="form-control" type="text" id="Color" name="Color" required/>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                     <a href="/pet/index" class="btn btn-secondary ">Back</a>
+                     <p style="color:red">@ViewBag.message</p>
+                </div>
+                <div class="form-group">
+                </div>				               
+            </form>
+            
+        </section>
+    </div>
+
+
+</div>
+}

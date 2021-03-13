@@ -1,0 +1,50 @@
+﻿@model List<SharpDevelopMVC4.Models.Appointment>
+@{
+	ViewBag.Title = "Appoinment";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ @if (Request.IsAuthenticated)
+     {
+<h2>Appoinment List</h2>
+
+<table class="table table-hover">
+        <thead>
+            <tr>
+               
+
+                <th> CustomerName</th>
+                <th> Address</th>
+                <th> Number</th>
+                <th> Concern</th>
+                <th> Date Of Appointment</th>
+                <th>Vet Id</th>
+                <th>Action</th>
+               
+                
+                 
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                   
+
+	                <td>@product.Customername</td>
+	                <td>@product.Address</td>
+	                <td>@product.Number</td>
+	                <td>@product.Concern</td>
+	                <td>@product.Dayofappointment</td>
+	                <td>@product.VetId</td>
+
+	                <td><a href="/Reception/Add" class="btn btn-warning btn-sm">Add</a></td>
+	               
+	              
+	               
+	            </tr>
+			}
+        </tbody>
+    </table>
+    
+    }

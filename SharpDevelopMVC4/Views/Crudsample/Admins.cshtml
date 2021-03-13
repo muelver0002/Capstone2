@@ -1,0 +1,35 @@
+﻿@model List<SharpDevelopMVC4.Models.AdminReg>
+@{
+	ViewBag.Title = "Admins";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @if (Request.IsAuthenticated)
+     {
+<h2>Admins</h2>
+
+ <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Passsword</th>
+                 
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                <td>@product.Id</td>
+	                <td>@product.FirstName</td>
+	                <td>@product.LastName</td>
+	                <td>@product.UserName</td>
+	                <td>@product.Password</td>
+	               
+	            </tr>
+			}
+        </tbody>
+    </table>
+    }

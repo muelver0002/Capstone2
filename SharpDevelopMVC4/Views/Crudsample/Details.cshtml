@@ -1,0 +1,121 @@
+﻿@model SharpDevelopMVC4.Models.Product
+
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ @if (Request.IsAuthenticated)
+     {
+
+    <div class="row">
+
+     <div class="col-lg-3">
+     <h1 class="my-4"></h1>
+       
+        <hr />
+        
+    @if(User.IsInRole("admin"))
+	   {
+	               
+	   	<a href="/crudsample" class="btn btn-outline-primary btn-lg">All Vets</a>     
+	   }  
+	   
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class="card mt-4">
+          <img class="card-img-top img-fluid"  src="/uploadedimages/@Model.PictureFilename">
+          <div class="card-body">
+            <h3 class="card-title">@Model.Name</h3>
+            <h4>@Model.Address, @Model.AddCity</h4>
+            <p class="card-text"><a style="color:red">Open Hour's</a>: @Model.Unit</p>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars
+          </div>
+        </div>
+        <!-- /.card -->
+
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Other Info Here
+          </div>
+          <div class="card-body">
+             <h5>Telephone</h5>
+           <p class="card-text">@Model.contactInfo</p>
+            <hr>
+            
+             <h5>Pets Accomodated</h5>
+              @foreach(var animal in ViewBag.Animals)
+             {
+             
+              <p class="card-text">@animal.Name</p>
+               
+              }  
+            
+            
+            <hr>
+            
+            <h5>Product</h5>
+             <table class="table table-hover">
+         <thead>
+           <tr>             
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Price</th>
+       
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in ViewBag.Product)
+			{
+	            <tr>
+	               	            
+	             <td>@product.Productname</td>
+	             <td>@product.Brand</td>
+	             <td>@product.Price</td>
+	                 
+                </tr>
+			}
+    </tbody>
+    </table>
+
+            <hr>
+              <h5>Services</h5>
+           
+             <table class="table table-hover">
+         <thead>
+           <tr>             
+                <th>Service</th>
+                <th>Price</th>
+       
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var service in ViewBag.Service)
+			{
+	            <tr>
+	               	            
+	             <td>@service.Servicesname</td>
+	             <td>@service.Price</td>
+	                 
+                </tr>
+			}
+    </tbody>
+    </table>
+     @if(User.IsInRole("customer"))
+	 {
+    <a href="/appointment/add/@Model.Id">Reservation/Appointment</a>
+    }
+          </div>
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+</div>
+
+}

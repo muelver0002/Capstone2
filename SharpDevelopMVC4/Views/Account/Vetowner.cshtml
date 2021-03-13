@@ -1,0 +1,50 @@
+﻿@{
+	ViewBag.Title = "Vetowner";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vetowner</h2>
+
+<br>
+
+<div class="row">
+    <div class="col-md-4">
+        <section>
+        
+            <form action="/account/Vetowner" method="post">
+            	 
+            	 <div class="form-group">
+                    <label >Full Name <label style="color:red">*</label></label>
+                    <input class="form-control" type="text" id="Fullname" name="Fullname" required />
+                </div>  
+               
+                <div class="form-group">
+                    <label >User Name <label style="color:red">*</label></label>
+                    <input class="form-control" type="text" id="UserName" name="UserName" required/>
+                </div>
+                <div class="form-group">
+                    <label >Password <label style="color:red">*</label></label>
+                    <input class="form-control" type="Password" id="Password" name="Password" required/>
+                </div>
+                 <div class="form-group">
+                    <label for="password">Retype Password <label style="color:red">*</label></label>
+                    <input class="form-control" type="Password" id="Password" name="RetypePassword" required/>
+                </div>
+               
+               
+               
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                     <a href="/Home/index" class="btn btn-secondary ">Back</a>
+                </div>
+                <div class="form-group">
+                   <p>@ViewBag.message</p>
+                   <p style="color:red">@ViewBag.messages</p>
+                </div>				               
+            </form>
+            
+        </section>
+    </div>
+
+
+</div>

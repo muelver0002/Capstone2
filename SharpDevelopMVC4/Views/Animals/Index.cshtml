@@ -1,0 +1,29 @@
+﻿@model List<SharpDevelopMVC4.Models.Animalsacom>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @if (Request.IsAuthenticated)
+     {
+<h2>Animals Accommodated</h2>
+
+ <table class="table table-hover">
+        <thead>
+            <tr>
+               
+                <th>Pet Type</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                   
+	                <td>@product.Name</td>
+               
+	            </tr>
+			}
+        </tbody>
+    </table>
+    }

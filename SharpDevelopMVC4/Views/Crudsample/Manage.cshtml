@@ -1,0 +1,80 @@
+﻿@model List<SharpDevelopMVC4.Models.Product>
+
+@{
+	ViewBag.Title = "Manage";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ @if (Request.IsAuthenticated)
+     {
+<div class="jumbotron">
+<h2>Manage Vet Clinic</h2>
+ </div>
+    <p class="float-right">
+        
+    </p>
+    <form action="/crudsample/Searches">
+
+   
+   <div class="container">  
+    <div class="row">
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="Key"  placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">🔍</button>
+                    </div>
+                  </div>
+                </form>
+              <br>  
+            </div>
+          </div>
+	
+      </form>
+     <div class="table-responsive" >   
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Contact</th>
+                 <th>OpenHours</th>
+               
+              
+                   <th>Status</th>
+                  <th>Photo</th>
+                  <th>Action</th>
+                  <th>Action</th>
+                  
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                <td>@product.Id</td>
+	                <td>@product.Name</td>
+	                <td>@product.Address<br>@product.AddCity</td>
+	                <td>@product.contactInfo</td>
+	                <td>@product.Unit</td>
+	                
+	                   <td>@product.Status </td>
+	                <td>
+	                	<img src="/uploadedimages/thumb/@product.PictureFilename" class="img-rounded" title="@product.Name" />
+	                </td>
+	                <td>
+	                    <a href="/crudsample/Edit/@product.Id" class="btn btn-warning btn-sm">Update</a>
+	                    
+	                </td>
+	                 <td>
+	                    
+	                    <a href="/crudsample/Delete/@product.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+	                </td>
+	            </tr>
+			}
+        </tbody>
+    </table>
+          </div>
+
+}

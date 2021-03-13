@@ -1,0 +1,40 @@
+﻿@model List<SharpDevelopMVC4.Models.Productacom>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @if (Request.IsAuthenticated)
+     {
+<h2>Products</h2>
+
+ <table class="table table-hover">
+        <thead>
+            <tr>
+                
+                <th>Product Name</th>
+                <th>Brand</th>
+                <th>Price</th>
+               
+               
+                
+                 
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                           
+	                <td>@product.Productname</td>
+	                 <td>@product.Brand</td>
+	                 <td>@product.Price</td>
+	                 
+	             
+	               
+	              
+	               
+	            </tr>
+			}
+        </tbody>
+    </table>
+    }

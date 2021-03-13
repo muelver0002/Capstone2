@@ -1,0 +1,37 @@
+﻿@model List<SharpDevelopMVC4.Models.Vetowner>
+@{
+	ViewBag.Title = "VetOwner";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @if (Request.IsAuthenticated)
+     {
+<h2>VetOwner</h2>
+
+ <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fullname</th>
+                <th>Username</th>
+                <th>Password</th>
+               
+                
+                 
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                <td>@product.Id</td>
+	                <td>@product.Fullname</td>	            
+	                <td>@product.Username</td>
+	                <td>@product.Password</td>
+	               
+	              
+	               
+	            </tr>
+			}
+        </tbody>
+    </table>
+    }
