@@ -21,6 +21,9 @@
                 <th>Breed</th>
                 <th>Type</th>
                 <th>Color</th>
+                 <th>BloodType</th>
+                  <th>Gender</th>
+                   <th>BirthDate</th>
                 <th>Action</th>
                  
                  
@@ -36,6 +39,9 @@
 	                <td>@product.Breed</td>
 	                <td>@product.Type</td>
 	                <td>@product.Color</td>
+	                <td>@product.Bloodtype</td>
+	                <td>@product.Gender</td>
+	                <td>@product.Bdate</td>
 	                
 	                 <td> 
 	                 <a href="/pet/Edit/@product.Id" class="btn btn-warning btn-sm">Edit</a>
@@ -48,4 +54,50 @@
 			}
         </tbody>
     </table>
+    
+    
+     if(TempData["pet"] != null)
+    {
+    
+    <script>    
+       function func(nam) {
+        alert(nam);
+    }
+    </script>
+	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+	<script>func('Added Successfuly..') </script>
+    
+    
+    }
+    
+    
+     if(TempData["edit"] != null)
+    {
+    
+    <script>    
+       function func(nam) {
+        alert(nam);
+    }
+    </script>
+	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+	<script>func('Edit Successfuly..') </script>
+    
+    
+    }
+    
+    
+    
+    if(TempData["deletpet"] != null)
+    {
+    
+    <script>    
+      function func(nam) {
+        alert(nam);
+    }
+    </script>
+	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+	<script>func('Deleted Successfuly..') </script>
+    
+    
+    }
     }

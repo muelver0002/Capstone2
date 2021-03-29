@@ -1,0 +1,86 @@
+﻿@model List<SharpDevelopMVC4.Models.Diagnose>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @if (Request.IsAuthenticated)
+     {
+<h2>Add Prescription</h2>
+
+<table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+               
+
+                <th> CustomerName</th>
+                <th> Doctor</th>
+                
+                <th> Concern</th>
+                
+                <th> Petname</th>
+                <th> Pettype</th>
+                <th> Petbreed</th>
+   
+                <th> Date</th>
+                <th> Complain</th>
+               
+                <th> Diagnose</th>
+               
+                
+                <th>Action</th>
+                
+                
+               
+                
+                 
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                   
+
+	                <td>@product.Customername</td>
+	                <td>@product.DocName</td>
+	               
+	                <td>@product.Concern</td>
+	                
+	                <td>@product.Petname</td>
+	                <td>@product.Pettype</td>
+	                <td>@product.PetBreed</td>
+	               
+	                <td>@product.Datetoday</td>
+	                
+	                <td>@product.Complain</td>
+	                
+	                
+	                
+	                 <td>@product.Diagnoselater</td>
+	                
+	                
+	                
+	                <td><a href="/Recept/AddItem/@product.Id" class="btn btn-warning btn-sm">+</a></td>
+
+	               
+	            </tr>
+			}
+        </tbody>
+    </table>
+    
+    
+     if(TempData["diagnosemsg"] != null)
+    {
+    
+        <script>    
+    function func(nam) {
+        alert(nam);
+    }
+    </script>
+		<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+		<script>func('Added Successfuly..') </script>
+    
+    
+    }
+    
+    }

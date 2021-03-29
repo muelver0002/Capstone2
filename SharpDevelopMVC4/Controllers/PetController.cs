@@ -53,8 +53,12 @@ namespace SharpDevelopMVC4.Controllers
 				
 				pets.OwnersID = Id;
 				
+				
+				
 			_db.Pets.Add(pets);
 			_db.SaveChanges();
+			
+			TempData["pet"] = "hello";
 			return RedirectToAction("Index");
 			
 			
@@ -72,8 +76,9 @@ namespace SharpDevelopMVC4.Controllers
 			{
 				_db.Pets.Remove(p);
 				_db.SaveChanges();
+				TempData["deletpet"] ="deletpet";
 			}
-		
+			
 			return RedirectToAction("Index");
 		}
 		
@@ -83,13 +88,12 @@ namespace SharpDevelopMVC4.Controllers
 		 {
 		  var p = _db.Pets.Find(Id);
 		  
-		    if(p !=null)
+		 if(p !=null)
 		  {
 		    	    
-		    ViewBag.Product = p;
-		    	
+		    ViewBag.Product = p;		    	
 		    ViewBag.ID = Id;
-		    var c = _db.Pets.Find(Id);
+		    
 			return View(p);
 			
 			 }
@@ -110,15 +114,19 @@ namespace SharpDevelopMVC4.Controllers
 				
 				
 				p.PetName = updatePet.PetName;
-				p.OwnersName = updatePet.OwnersName;
+//				p.OwnersName = updatePet.OwnersName;
 				p.Breed = updatePet.Breed;
 				p.Type = updatePet.Type;
 				p.Color = updatePet.Color;
-				
+				p.Bloodtype = updatePet.Bloodtype;
+				p.Gender = updatePet.Gender;
+				p.Bdate = updatePet.Bdate;
 				_db.Entry(p).State = System.Data.Entity.EntityState.Modified;
 				_db.SaveChanges();
-			
-			return RedirectToAction("Index");
+			   
+				TempData["edit"] ="success";
+				
+			   return RedirectToAction("Index");
 			
 			}
 			

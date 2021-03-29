@@ -23,8 +23,10 @@ namespace SharpDevelopMVC4.Controllers
         [ValidateAntiForgeryToken]		
 		public ActionResult Login(string username, string password, bool rememberme = false)
 		{
+			 ViewBag.text = username;
 			if(UserAccount.Authenticate(username, password))
 		    {
+				
 		    	var user = UserAccount.GetUserByUserName(username);
 				var authTicket = new FormsAuthenticationTicket(
 				    1,                             	// version
@@ -85,19 +87,24 @@ namespace SharpDevelopMVC4.Controllers
 					newCust.Password = newUser.Password;
 					newCust.AddCity = newUser.AddCity;
 					newCust.Number = newUser.Number;
+					
+					TempData["register"] ="register";
+					
 					_db.Customers.Add(newCust);
 			     	_db.SaveChanges();
 					
+			     	
+			     	
 					return RedirectToAction("Login");
 					
 				}
-				ViewBag.message = "Registration Failed";
+				ViewBag.message = "Account is already exist!";
 			}
 			
 			
 			else{
 				
-			ViewBag.message="Password not matched";
+			ViewBag.notmatch="Password not matched";
 			
 			}
 			

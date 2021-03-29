@@ -13,34 +13,55 @@
             <form action="/pet/create" method="post">
             	 
             	 <div class="form-group">
-                    <label >Pet Name</label>
+                    <label>Name<label style="color:red">*</label>
                     <input class="form-control" type="text" id="PetName" name="PetName" required />
                 </div>  
                
-               <div class="form-group">
-                    <label >Owners Fullname</label>
-                    <input class="form-control" type="text" id="OwnersName" name="OwnersName" required/>
-                </div>
+              
                 
                  <div class="form-group">
-                    <label >Breed:</label>
+                    <label>Breed<label style="color:red">*</label>
                     <input class="form-control" type="text" id="Breed" name="Breed"  required/>
                    
                 </div>
 
                 <div class="form-group">
-                    <label >Type</label>
+                    <label>Type of pet<label style="color:red">*</label>
                     <input class="form-control" type="text" id="Type" name="Type" required/>
                 </div>
                 
                 <div class="form-group">
-                    <label >Color</label>
+                    <label>Color<label style="color:red">*</label>
                     <input class="form-control" type="text" id="Color" name="Color" required/>
                 </div>
                 
+                 <div class="form-group">
+                     <label>Blood Type<label style="color:red">*</label>
+                    <input class="form-control" type="text" id="Bloodtype" name="Bloodtype" required/>
+                </div>
+                
+                 <div class="form-group">
+   
+				   <label>Gender<label style="color:red">*</label>
+				   <select name="Gender" class="form-control" required>
+				   <option>Gender</option>
+				  
+				    <option value="Male">Male</option>
+				    <option value="Female">Female</option>
+				      
+				   </select>
+				   
+				 </div>
+                
+                 <div class="form-group">
+                    <label>Birth Date<label style="color:red">*</label>
+                    <input class="form-control" type="Date" id="Bdate" name="Bdate" required/>
+                </div>
+                
+                
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                     <a href="/pet/index" class="btn btn-secondary ">Back</a>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                     <a href="/Home/index" class="btn btn-secondary ">Cancel</a>
                      <p style="color:red">@ViewBag.message</p>
                 </div>
                 <div class="form-group">

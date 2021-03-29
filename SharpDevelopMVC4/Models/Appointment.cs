@@ -11,6 +11,10 @@ namespace SharpDevelopMVC4.Models
 		
 		public int Id { get; set; }
 		
+		public int CustId { get; set; }
+		
+		public string Vetname { get; set;}
+		
 		public string Dayofappointment { get; set; }
 		
 		public string Customername {get; set;}
@@ -23,6 +27,19 @@ namespace SharpDevelopMVC4.Models
 		
 		public int VetId {get; set;}
 		
+		public string PetName { get; set; }
+
+		public string Breed { get; set; }
+		
+		public string Type { get; set; }
+		
+		public string Color { get; set; }
+		
+		public string Bloodtype { get; set; }
+		
+		public string Gender { get; set; }
+		
+		public string Bdate { get; set; }
 		
 		
 	}

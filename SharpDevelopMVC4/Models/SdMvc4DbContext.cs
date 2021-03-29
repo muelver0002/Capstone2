@@ -12,7 +12,7 @@ namespace SharpDevelopMVC4.Models
         {
         }
 
-        // Map model classes to database tables
+        //Map model classes to database tables
         public DbSet<UserAccount> Users { get; set; }
         
         public DbSet<Product> Products { get; set; }
@@ -39,8 +39,13 @@ namespace SharpDevelopMVC4.Models
         
         public DbSet<Receptionist> Receptionists {get; set;}
         
+        public DbSet<Diagnose> Diagnoses {get; set;}
         
+        public DbSet<Diagnoserecord> Diagnoserecords { get; set;}
         
+        public DbSet<Recept> Recepts { get; set; }
+        
+        public DbSet<Medicine> Medicines { get; set;}
     }
 
 

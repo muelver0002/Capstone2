@@ -2,11 +2,17 @@
 @{
 	ViewBag.Title = "Appointment";
 	Layout = "~/Views/Shared/_Layout.cshtml";
+
+
 }
+
+
+
  @if (Request.IsAuthenticated)
      {
      if(User.IsInRole("customer"))
-				{
+	  {
+				
 <h2>Reserve Appointment</h2>
 
 <div class="row">
@@ -16,30 +22,67 @@
             <form action="/appointment/add" method="post">
             	 
             	 <div class="form-group">
-                    <label >Full Name <label style="color:red">*</label></label>
-                    <input class="form-control" value="@Model.Fullname" type="text" id="Customername" name="Customername" required />
+                    
+                    <input class="form-control" value="@Model.Id" type="hidden" id="" name="CustId" required />
+                    
+                </div> 
+            	 
+            	 <div class="form-group">
+
+                    <input class="form-control" value="@ViewBag.Name" type="hidden" id="" name="Vetname" required />
+                </div> 
+            	 
+            	 
+            	 <div class="form-group">
+
+                    <input class="form-control" value="@Model.Fullname" type="hidden" id="Customername" name="Customername" required />
                 </div>  
                
              
                 
                  <div class="form-group">
-                    <label >Address <label style="color:red">*</label></label>
-                    <input class="form-control" value="@Model.Address,@Model.AddCity" type="text" id="Address" name="Address"  required/>
+
+                    <input class="form-control" value="@Model.Address,@Model.AddCity" type="hidden" id="Address" name="Address"  required/>
                 </div>
 
 
                 <div class="form-group">
-                    <label >Contact Number <label style="color:red">*</label></label>
-                    <input class="form-control" value="@Model.Fullname" type="number" id="Number" name="Number" required/>
+
+                    <input class="form-control" value="@Model.Number" type="hidden" id="Number" name="Number" required/>
                 </div>
                 
                 
-               <div class="form-group">
-                    <label >Concern <label style="color:red">*</label></label>
-                    <textarea class="form-control" type="text" id="Concern" name="Concern" required>
-                    </textarea>
+                <div class="form-group">
+   
+				   <label>Select Pet<label style="color:red">*</label>
+				   <select name="Pet" class="form-control" required>
+				   <option></option>
+				   @foreach(var cat in ViewBag.pets)
+				   {
+				    <option value="@cat.Id">@cat.PetName</option>
+				   }   
+				   </select>
+				   
+				 </div>
+				 
+				
+				 @{
+				   int i =0;
+				 
+				 }
+				 
+				<div class="form-group">
+				<label>Select Services<label style="color:red">*</label><br>
+				 @foreach(var service in ViewBag.services)
+				 {
+				  <input type="checkbox" name="Services[]" value="@service.Servicesname" > @service.Servicesname
+				  <br>
+				 }
+                
                 </div>
                 
+               
+                <br>
               
                 
                  <div class="form-group">

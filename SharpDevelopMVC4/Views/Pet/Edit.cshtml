@@ -14,30 +14,54 @@
             <form action="/pet/edit?Id=@ViewBag.ID" method="post" class="form-horizontal">
             	 
             	 <div class="form-group">
-                    <label >Pet Name</label>
+                     <label>Name<label style="color:red">*</label>
                     <input class="form-control" type="text" id="PetName" name="PetName" value="@Product.PetName" required />
                 </div>  
                
-               <div class="form-group">
-                    <label >Owners Fullname</label>
-                    <input class="form-control" type="text" id="OwnersName" name="OwnersName" value="@Product.OwnersName" required/>
-                </div>
+              
                 
                  <div class="form-group">
-                    <label >Breed:</label>
+                     <label>Breed<label style="color:red">*</label>
                     <input class="form-control" type="text" id="Breed" name="Breed" value="@Product.Breed" required/>
                    
                 </div>
 
                 <div class="form-group">
-                    <label >Type</label>
+                    <label>Dog Type<label style="color:red">*</label>
                     <input class="form-control" type="text" id="Type" name="Type" value="@Product.Type" required/>
                 </div>
                 
                 <div class="form-group">
-                    <label >Color</label>
+                     <label>Color<label style="color:red">*</label>
                     <input class="form-control" type="text" id="Color" name="Color" value="@Product.Color" required/>
                 </div>
+                
+                
+                
+                 <div class="form-group">
+                    <label>Blood Type<label style="color:red">*</label>
+                    <input class="form-control" type="text" id="Bloodtype" value="@Product.Bloodtype" name="Bloodtype" required/>
+                </div>
+                
+                 <div class="form-group">
+   
+				   <label>Gender<label style="color:red">*</label>
+				   <select name="Gender" class="form-control" value="@Product.Gender" required>
+				   <option>Gender</option>
+				  
+				    <option value="Male">Male</option>
+				    <option value="Female">Female</option>
+				      
+				   </select>
+				   
+				 </div>
+                
+                 <div class="form-group">
+                    <label>Birth Date<label style="color:red">*</label>
+                    <input class="form-control" type="Date" id="Bdate" value="@Product.Bdate" name="Bdate" required/>
+                </div>
+                
+                
                 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Update</button>

@@ -1,0 +1,101 @@
+﻿@model List<SharpDevelopMVC4.Models.Diagnoserecord>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+ @if (Request.IsAuthenticated)
+     {
+<h2>Patient History</h2>
+
+<table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+               
+                 @if(User.IsInRole("recept"))
+                     {
+                <th> CustomerName</th>
+                }
+                 @if(User.IsInRole("owner"))
+                     {
+                <th> CustomerName</th>
+                }
+                
+                 @if(User.IsInRole("doctor"))
+                     {
+                <th> CustomerName</th>
+                }
+                <th> VetName</th>
+                
+                <th> Doctor</th>
+                
+               
+                <th> Concern</th>
+                
+                <th> Petname</th>
+                <th> Pettype</th>
+                <th> Petbreed</th>
+                
+                <th> Date</th>
+                <th> Complain</th>
+               
+                <th> Diagnose</th>
+                 <th> ReturnCheckUp</th>
+                
+                
+                
+               
+                
+                 
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                   
+                @if(User.IsInRole("recept"))
+                     {
+	                <td>@product.Customername</td>
+	                }
+	                
+	                 @if(User.IsInRole("owner"))
+                     {
+	                <td>@product.Customername</td>
+	                }
+	                
+	                 @if(User.IsInRole("doctor"))
+                     {
+	                <td>@product.Customername</td>
+	                }
+	                <th> @product.Vetname</th>
+	                
+	                <td>@product.DocName</td>
+	                
+	                <td>@product.Concern</td>
+	                
+	                <td>@product.Petname</td>
+	                <td>@product.Pettype</td>
+	                <td>@product.PetBreed</td>
+	                
+	                <td>@product.Datetoday</td>
+	                
+	                <td>@product.Complain</td>
+	                
+	                
+	                
+	                 <td>@product.Diagnoselater</td>
+	                
+	                <td>@product.Followupdate</td>
+	                
+	                
+
+	               
+	            </tr>
+			}
+        </tbody>
+    </table>
+    
+    }

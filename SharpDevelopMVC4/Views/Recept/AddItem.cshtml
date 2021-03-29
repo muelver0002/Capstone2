@@ -1,0 +1,117 @@
+﻿@{
+	ViewBag.Title = "AddItem";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	
+	var patient = ViewBag.DiagnoseId;
+	
+}
+
+<h2>AddItem</h2>
+
+<div class="row">
+<div class="col-lg-3">
+
+
+ <form action="/Recept/AddItem" method="post">
+            	
+            	 <div class="form-group">
+                    <input class="form-control" value="@patient.CustId"  type="hidden" id="" name="Id" required />
+                </div>  
+                
+                <div class="form-group">
+                    <input class="form-control" value="@patient.Customername"  type="hidden" id="" name="cusname" required />
+                </div>
+
+                <div class="form-group">
+   
+				   <label>Select Medicine<label style="color:red">*</label>
+				   <select name="medicineId" class="form-control" required>
+				   <option></option>
+				   @foreach(var pro in ViewBag.MedList)
+				   {
+				    <option value="@pro.Id">@pro.Name</option>
+				   }   
+				   </select>
+				   
+				 </div>
+                 <div class="form-group">
+                    <label>Qty<label style="color:red">*</label>
+                    <input class="form-control" type="text" id="Breed" name="qty1"  required/>
+                   
+                </div>
+
+            	   <div class="form-group">
+   
+				   <label>Select Service<label style="color:red">*</label>
+				   <select name="serviceId" class="form-control" required>
+				   <option></option>
+				   @foreach(var cat in ViewBag.Servicelist)
+				   {
+				    <option value="@cat.Id">@cat.Servicesname</option>
+				   }   
+				   </select>
+				   
+				 </div>
+            	 <div class="form-group">
+                    <label>Qty<label style="color:red">*</label>
+                    <input class="form-control" type="number" id="PetName" name="qty2" required />
+                </div>  
+                
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                     <a href="/Home/index" class="btn btn-secondary ">Cancel</a>
+                     <p style="color:red">@ViewBag.message</p>
+                </div>
+                <div class="form-group">
+                </div>				               
+            </form>
+
+
+</div>
+    <div class="col-md-4">
+        <section>
+        <div style=" overflow: scroll; height: 500px;">
+        <table class="table table-hover">
+        <thead>
+            <tr>
+                
+                <th>Id</th>
+               
+                 
+                <th>price</th>
+                <th>Qty</th>
+                <th>Total</th>
+                 
+                 
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in ViewBag.recpt)
+			{
+	            <tr>
+	                
+	                <td>@product.Id</td>
+	               
+	                <td>@product.Price</td>
+	                <td>@product.Qty</td>
+	                <td>@product.Total</td>
+	                
+	                
+	                 
+	                 
+	                 
+	            </tr>
+			}
+        </tbody>
+    </table>
+        </div>
+        
+        
+           
+            
+        </section>
+    </div>
+
+
+</div>

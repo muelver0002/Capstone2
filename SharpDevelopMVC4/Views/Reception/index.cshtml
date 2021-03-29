@@ -7,7 +7,7 @@
      {
 <h2>Patient List</h2>
 
-<table class="table table-hover">
+<table class="table table-responsive table-hover">
         <thead>
             <tr>
                
@@ -16,15 +16,26 @@
                 <th> Address</th>
                 <th> Number</th>
                 <th> Concern</th>
+                
+                <th> Petname</th>
                 <th> Pettype</th>
+                <th> Petbreed</th>
                 <th> Petcolor</th>
+                
+                 <th>BloodType</th>
+                  <th>Gender</th>
+                   <th>BirthDate</th>  
+                
                 <th> Petage</th>
                 <th> Weight</th>
                 <th> Temperature</th>
                 <th> Date</th>
                 <th> Complain</th>
-                <th>Vetid</th>
-               
+                
+              @if(User.IsInRole("doctor"))
+               {
+                <th>Action</th>
+               }   
                 
                  
             </tr>
@@ -39,23 +50,65 @@
 	                <td>@product.Adrress</td>
 	                <td>@product.Number</td>
 	                <td>@product.Concern</td>
+	                
+	                <td>@product.Petname</td>
 	                <td>@product.Pettype</td>
+	                <td>@product.PetBreed</td>
 	                <td>@product.Petcolor</td>
+	                
+	                 <td>@product.Bloodtype</td>
+	                <td>@product.Gender</td>
+	                <td>@product.Bdate</td>
+	                
 	                <td>@product.Petage</td>
 	                <td>@product.Weight</td>
 	                <td>@product.Temperature</td>
 	                <td>@product.Datetoday</td>
 	                
 	                <td>@product.Complain</td>
-	                <td>@product.Vetid</td>
-
-
 	               
-	              
+	                
+	              @if(User.IsInRole("doctor"))
+                   {
+	                <td><a href="/Diagnose/Add/@product.Id" class="btn btn-primary btn-sm">Diagnose</a></td>
+	               } 
+
 	               
 	            </tr>
 			}
         </tbody>
     </table>
+    
+  
+    
+
+    
+    if(TempData["addpatient"] != null)
+    {
+    
+        <script>    
+    function func(nam) {
+        alert(nam);
+    }
+    </script>
+		<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+		<script>func('Added Successfuly..') </script>
+    
+    
+    }
+    
+     if(TempData["addmessage"] != null)
+    {
+    
+        <script>    
+    function func(nam) {
+        alert(nam);
+    }
+    </script>
+		<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+		<script>func('Added Successfuly..') </script>
+    
+    
+    }
     
     }

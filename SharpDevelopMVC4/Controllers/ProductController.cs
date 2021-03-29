@@ -53,6 +53,8 @@ namespace SharpDevelopMVC4.Controllers
 				
 			product.VetId = Id;
 				
+			TempData["productmsg"] ="text";
+			
 			 _db.Productacoms.Add(product);
 		     _db.SaveChanges();
 		     return View();

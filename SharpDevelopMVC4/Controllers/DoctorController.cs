@@ -16,7 +16,24 @@ namespace SharpDevelopMVC4.Controllers
 		SdMvc4DbContext _db = new SdMvc4DbContext();
 		public ActionResult Index()
 		{
-			return View();
+			if(Session["user"] != null)
+			{
+				if(User.IsInRole("owner")){
+				var user = Session["user"].ToString();
+				var vetadmin = _db.Vetowners.Where(x => x.Username == user).FirstOrDefault();
+				
+				int VetId = vetadmin.Id;
+				
+				List<Doctor> DoctorList = _db.Doctors.Where(x => x.Vetid == VetId).ToList();
+				
+				return View(DoctorList);
+				}
+				
+				
+			}
+			
+			
+              return RedirectToAction("Logoff", "Account");
 		}
 		
 		
@@ -49,8 +66,10 @@ namespace SharpDevelopMVC4.Controllers
 					newDoc.Username = newUser.UserName;
 					newDoc.Password = newUser.Password;
 					newDoc.Vetid = Id;
+					ViewBag.doc="text";
 					_db.Doctors.Add(newDoc);
 					_db.SaveChanges();
+					
 					
 					return View();
 				

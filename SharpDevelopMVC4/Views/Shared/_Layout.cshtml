@@ -46,58 +46,73 @@
 	         
 		  <div id="mySidenav" class="sidenav">
 		   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		   <a  href="/crudsample/index"><i id="icon"class="fa fa-user-circle-o" style="font-size:48px;color:white; margin-left: 55px;"></i></a>
+		   <br>
+		   <a  href="/crudsample/index"><i id="icon"class="fa fa-user-circle-o" 
+		   style="font-size:48px;color:white;
+		   display: flex; align-content: center;
+		   margin-left: 65px;"></i></a>
 		   
 		  
-		   <p style="  padding: 8px 8px 8px 40px;
+		   <p style="  
 			  text-decoration: none;
 			  font-size: 25px;
 			  color:white;
 			  display: block;
-			  transition: 0.3s;">@User.Identity.Name</p>
+			  transition: 0.3s;text-align: center;">@User.Identity.Name</p>
               <hr/>		   
-		    <a  href="/crudsample/index"><i style="font-size:24px" class="fa">&#xf1b0;</i> View Clinic</a>
+		    
 			@if(User.IsInRole("owner"))
             {
-            
-            <a href="/animals/create" ><i style="font-size:24px" class="fa">&#xf1b0;</i> Add Animals </a>
+                      <a  href="/crudsample/index">View Clinics</a>
                       
-            <a href="/product/create" >  <i style="font-size:24px" class="fa">&#xf1b0;</i> Add Product</a>
-           
-            <a href="/services/create" >  <i style="font-size:24px" class="fa">&#xf1b0;</i> Add Services</a>
-            
-            
-            
-            <a href="/Receptionist/Register" ><i style="font-size:24px" class="fa">&#xf234;</i> Receptionist</a>
-             
-            <a href="/Doctor/Register" ><i style="font-size:24px" class="fa">&#xf234;</i> Doctor</a>
-            
-            
+                      <a href="/animals/index">View Animals</a>
+	              	           
+	              	  <a href="/product/index" >View Products</a>
+	              	           
+	              	  <a href="/services/index"> View Services</a>
+	              	   
+	              	  <a href="/Diagnoserecord/index" >Patient History</a>
+	              	  
+                      <a href="/appointment/index" >View Reservation</a>
+                      
+                      <a href="/Reception/index" >Patients</a>
+                                 
+		              <a  href="/Receptionist/Index">ReceptionInfo</a>
+		            
+		              <a  href="/Doctor/Index">DoctorInfo</a>
             } 	
 				
 				
 				
             @if(User.IsInRole("customer"))
+            
             {
-             <a href="/pet/create" ><i style="font-size:24px" class="fa">&#xf1b0;</i>Add Pet</a>
-             <a href="/pet/index" ><i style="font-size:24px" class="fa">&#xf1b0;</i>View My Pet</a>  
+             <a  href="/crudsample/index">View Clinics</a>
+            
+             <a href="/pet/index" >View MyPets</a>  
+             
+             <a href="/appointment/index" >Appointments</a>
+             
+             <a href="/Diagnoserecord/index" >My History</a>
             
             }   
 
 
              @if(User.IsInRole("recept"))
             {
-             <a href="/Reception/Add" ><i style="font-size:24px" class="fa">&#xf234;</i> Patient</a>
-
-            
+              <a href="/appointment/index" >View Reservation</a>
+              
+              <a href="/Reception/index" >View Patients</a>
             }
             
             
             
              @if(User.IsInRole("doctor"))
             {
-             <a href="" ><i style="font-size:24px" class="fa">&#xf1b0;</i>Doctor DashBoard</a>
-
+            
+               <a href="/Reception/index" >View Patients</a>
+               
+               <a href="/Diagnoserecord/index" >Patient History</a>
             
             }  
 
@@ -109,19 +124,23 @@
 					   
 			 @if(User.IsInRole("admin"))
 			 {
-					  
+             <a  href="/crudsample/index"><i style="font-size:24px" class="fa">&#xf1b0;</i> View Clinic</a>			
+			
              <a  href="/crudsample/manage"><i style="font-size:24px" class="fa">&#xf0ad;</i> Manage Vets</a>
-	          <a  href="/Account/AdminReg"><i style="font-size:24px" class="fa">&#xf234;</i> New Admin</a>
-	           <a  href="/crudsample/Admins"><i style="font-size:24px" class="fa">&#xf0c0;</i> Users</a>
-	           <a  href="/crudsample/ManageCustom"><i style="font-size:24px" class="fa">&#xf0c0;</i> Customer</a>
-	            <a  href="/crudsample/Viewpet"><i style="font-size:24px" class="fa">&#xf1b0;</i> View Pets</a>
-	             <a  href="/crudsample/VetOwner"><i style="font-size:24px" class="fa">&#xf1b0;</i> Vet Owner</a>
+	         <a  href="/Account/AdminReg"><i style="font-size:24px" class="fa">&#xf234;</i> New Admin</a>
+	         <a  href="/crudsample/Admins"><i style="font-size:24px" class="fa">&#xf0c0;</i> Users</a>
+	         <a  href="/crudsample/ManageCustom"><i style="font-size:24px" class="fa">&#xf0c0;</i> Customer</a>
+	         <a  href="/crudsample/Viewpet"><i style="font-size:24px" class="fa">&#xf1b0;</i> View Pets</a>
+	         <a  href="/crudsample/VetOwner"><i style="font-size:24px" class="fa">&#xf1b0;</i> Vet Owner</a>
 		      }
 					   
 			    <hr/>
 			    <a  href="/" ><i class="fa  fa-home"></i> Home</a>
-				<a class="nav-link" href="/Home/About"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
-				<a class="nav-link" href="/Home/Contact"><i style="font-size:24px" class="fa">&#xf095;</i> Contact</a>
+			  
+				<a class="nav-link" href="/Home/About" ><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
+			  
+			  
+				<a class="nav-link" href="/Home/Contact" ><i style="font-size:24px" class="fa">&#xf095;</i> Contact</a>
 
 			    </div>
 					
@@ -144,9 +163,9 @@
           
           @if (!Request.IsAuthenticated)
         {
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-       <i style="font-size:24px" class="fa">&#xf1b0;</i>
-      </button>
+	      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	       <i style="font-size:24px" class="fa">&#xf1b0;</i>
+	      </button>
        } 
           
           
@@ -154,12 +173,12 @@
      
         @if (Request.IsAuthenticated)
         {
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-       <i style="font-size:24px" class="fa">&#xf1b0;</i>
-      </button>
-       }
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto " >
+	      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	       <i style="font-size:24px" class="fa">&#xf1b0;</i>
+	      </button>
+	       }
+	      <div class="collapse navbar-collapse" id="navbarResponsive">
+	        <ul class="navbar-nav ml-auto " >
           
           
           
@@ -173,21 +192,42 @@
 	           Hello, @User.Identity.Name!
 	           </a>
 	           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-            	   <a class="dropdown-item" href="#">My Account</a>
-	              @if(User.IsInRole("owner"))
-	              {            <a class="dropdown-item" href="/crudsample/myinfo">My vet</a>
-	              	           <a href="/animals/index" class="dropdown-item">View Animals</a>
-	              	           <a href="/product/index" class="dropdown-item">View Product</a>
-	              	           <a href="/services/index" class="dropdown-item">View Services</a>
-                              
+            	   <a class="dropdown-item" href="#"> My Account</a>
+            	   
+            	  @if(User.IsInRole("customer"))
+                  {
+                   <a  class="dropdown-item" href="/pet/create" >+ Pet</a>
+                   
+                  
+                  
+                  }            	  
+            	   
+	              @if(User.IsInRole("owner"))	              
+	              {  
+	             <a class="dropdown-item" href="/crudsample/myinfo">My vet</a>    
+		         <a class="dropdown-item" href="/animals/create" >+ Animals </a>
+	                      
+	             <a class="dropdown-item" href="/product/create" >+ Add Product</a>
+	           
+	             <a class="dropdown-item" href="/services/create" >+ Add Services</a>
+	             
+	             <a class="dropdown-item" href="/medicine/addmed" >+ Add Medicine</a>
+	             
+	             <a class="dropdown-item" href="/Receptionist/Register" >+ Receptionist</a>
+	             
+	             <a class="dropdown-item" href="/Doctor/Register" >+ Doctor</a>
+	              
+	              
+	                  
+	              
+	              	  
                                	              	                                          
 	              }  
 
                   @if(User.IsInRole("recept"))
                   {
                   
-                  <a href="/appointment/index" class="dropdown-item">View Reservations</a>
-                  
+                   <a class="dropdown-item" href="/Reception/Addpatient" >+ Patient</a>
                   
                   }
                   
@@ -195,11 +235,12 @@
                    @if(User.IsInRole("doctor"))
                   {
                   
-                 <a href="/Reception/index" class="dropdown-item">View Patients</a>
+                    
+                    <a href="/Diagnose/index" class="dropdown-item">+ Patient Prescription</a>
                   
                   
                   }
-	           <a class="dropdown-item" href="/Account/Logoff"><i style="font-size:18px" class="fa">&#xf08b;</i>Log Out</a>	             
+	           <a class="dropdown-item" href="/Account/Logoff"><i style="font-size:18px" class="fa">&#xf08b;</i> Log Out</a>	             
 	           </div>
 	           </li>
 	          

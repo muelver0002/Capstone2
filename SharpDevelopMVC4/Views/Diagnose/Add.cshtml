@@ -1,0 +1,246 @@
+﻿@model SharpDevelopMVC4.Models.Patient
+@{
+	ViewBag.Title = "Add";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ @if (Request.IsAuthenticated)
+     {
+     
+ <head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+</head>
+<h2>Diagnose</h2>
+
+<div class="row">
+<div class="col-lg-4">
+ <form action="/Diagnose/Add" method="post">
+            	 
+            	<div class="form-group">
+                    <input class="form-control" value="@Model.CustId" type="hidden" id="" name="CustId"  />
+                </div> 
+                
+                <div class="form-group">
+                    <input class="form-control" value="@Model.Id" type="hidden" id="" name="ID"  />
+                </div> 
+                
+                <div class="form-group">
+                    <input class="form-control" value="@Model.Vetname" type="hidden" id="" name="Vetname"  />
+                </div> 
+            	
+            	
+            	<div class="form-group">
+                    <label >Full Name <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Customername" type="text" id="" name="" disabled />
+                    
+                    <input class="form-control" value="@Model.Customername" type="hidden" id="Customername" name="Customername"  />
+                </div>  
+               
+             
+
+
+                <div class="form-group">
+                    <label >Contact Number <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Number" type="number" id="" name="" disabled />
+                    <input class="form-control" value="@Model.Number" type="hidden" id="Number" name="Number" />
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label >Address <label style="color:red"></label></label>
+                     <input class="form-control" value="@Model.Adrress" type="text" id="" name="" disabled />
+                   
+                    <input class="form-control" value="@Model.Adrress" type="hidden" id="Adrress" name="Adrress"  />
+                </div>
+                
+                <div class="form-group">
+                    <label >Concern <label style="color:red"></label></label>
+                   
+                    <textarea class="form-control" value="@Model.Concern" type="hidden" id="Concern" name="Concern" rows="4" cols="50" >
+                    @Model.Concern
+                    </textarea>
+                </div>
+                
+                 <div class="form-group">
+                    <label >Pet Name <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Petname" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Petname" type="hidden" id="Petname" name="Petname" />
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label >Pet Type <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Pettype" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Pettype" type="hidden" id="Pettype" name="Pettype" />
+                </div>
+                
+                
+                <div class="form-group">
+                    <label >Pet Breed <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.PetBreed" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.PetBreed" type="hidden" id="PetBreed" name="PetBreed" />
+                </div>
+                
+                <div class="form-group">
+                    <label >Pet Color <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Petcolor" type="text" id="" name="" disabled/>
+                    
+                     <input class="form-control" value="@Model.Petcolor" type="hidden" id="Petcolor" name="Petcolor" />
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label >Blood Type <label style="color:red"></label></label>
+                    
+                    <input class="form-control" value="@Model.Bloodtype" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Bloodtype" type="hidden" id="Bloodtype" name="Bloodtype" />
+                </div>
+                
+                 <div class="form-group">
+                    <label >Gender <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Gender" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Gender" type="hidden" id="Gender" name="Gender" />
+                </div>
+                
+                 <div class="form-group">
+                    <label >Birth Date <label style="color:red"></label></label>
+                    
+                     <input class="form-control" value="@Model.Bdate" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Bdate" type="hidden" id="Bdate" name="Bdate" />
+                </div>
+                
+                
+                
+                <div class="form-group">
+                    <label >Date Approve <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Datetoday" type="text" id="" name="" disabled/>
+                    
+                    
+                    <input class="form-control" value="@Model.Datetoday" type="hidden" id="Dateapprove" name="Dateapprove" />
+                </div>
+                
+                
+                <div class="form-group">
+                    <label >Pet Age<label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Petage" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Petage" type="hidden" id="Petage" name="Petage" />
+                </div>
+                
+                <div class="form-group">
+                    <label >Pet Weight <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Weight" type="text" id="" name="" disabled/>
+                    
+                    
+                     <input class="form-control" value="@Model.Weight" type="hidden" id="Weight" name="Weight" />
+                </div>
+                
+                <div class="form-group">
+                    <label >Pet Temperature <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Temperature" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Temperature" type="hidden" id="Temperature" name="Temperature" />
+                </div>
+                
+              
+                
+                <div class="form-group">
+                    <label >Complain <label style="color:red">*</label></label>
+                    <textarea class="form-control" value="@Model.Complain" type="text" id="Complain" name="Complain" rows="4" cols="50" required>
+                    @Model.Complain
+                    </textarea>
+                </div>
+                
+               <div class="form-group">
+                    <label >Diagnose <label style="color:red">*</label></label>
+                    <textarea class="form-control" type="text" id="Diagnoselater" name="Diagnoselater" rows="4" cols="50" required>
+                    </textarea>
+                </div>
+                
+                 <div class="form-group">
+                    <label style="color:red" >Return Check Up </label>
+                    <input class="form-control" type="date" id="Followupdate" name="Followupdate" />
+                </div>
+               
+               
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+
+                </div>
+                
+                
+                <div class="form-group">
+                </div>				               
+            </form>
+            
+            
+</div>
+ <div class="col-lg-4">
+   <section>
+    
+                
+<div> 
+@if(ViewBag.history != null)
+{
+<h1 class="my-4" >Patient History</h1>                      
+<table>
+        <thead>
+            <tr>
+                
+                <th>FullName</th>               
+                <th>Concern</th>
+                <th>Complain</th>
+                <th>Diagnose</th>
+                <th>Date</th>
+                               
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in ViewBag.history)
+			{
+	            <tr>
+	                
+	                <td>@product.Customername</td>	               
+	                <td>@product.Concern</td>
+	                <td>@product.Complain</td>
+	                <td>@product.Diagnoselater</td>
+	                <td>@product.Datetoday</td>
+	                
+                 
+	            </tr>
+			}
+        </tbody>
+    </table>
+   }
+   </div>        
+        </section>
+    </div>
+
+
+
+
+</div>
+
+}

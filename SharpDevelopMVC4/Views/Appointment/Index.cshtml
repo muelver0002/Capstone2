@@ -8,19 +8,56 @@
      {
 <h2>Appoinment List</h2>
 
-<table class="table table-hover">
+<table class="table table-responsive table-hover">
         <thead>
-            <tr>
-               
-
+            <tr> 
+                 @if(User.IsInRole("customer"))
+                  {
+                 <th>VetName</th>
+                 }
+                 @if(User.IsInRole("recept"))
+                  {
                 <th> CustomerName</th>
                 <th> Address</th>
                 <th> Number</th>
+                
+                 <th> PetName</th>
+                 <th> PetType</th>
+                 <th> PetColor</th>
+                 <th> PetBreed</th>
+                   <th>BloodType</th>
+                  <th>Gender</th>
+                   <th>BirthDate</th>                
+                  }
+                   @if(User.IsInRole("owner"))
+                  {
+                <th> CustomerName</th>
+                <th> Address</th>
+                <th> Number</th>
+                
+                 <th> PetName</th>
+                 <th> PetType</th>
+                 <th> PetColor</th>
+                 <th> PetBreed</th>
+                  <th>BloodType</th>
+                  <th>Gender</th>
+                   <th>BirthDate</th>
+                  }
+                
+                
                 <th> Concern</th>
-                <th> Date Of Appointment</th>
-                <th>Vet Id</th>
+                <th> DateOfAppointment</th>
+
+                
+                @if(User.IsInRole("recept"))
+                  {
                 <th>Action</th>
-               
+                  }
+                  
+                  @if(User.IsInRole("customer"))
+                  {
+                <th>Action</th>
+                  }
                 
                  
             </tr>
@@ -29,17 +66,51 @@
 			@foreach(var product in Model)
 			{
 	            <tr>
-	                   
-
+	                  @if(User.IsInRole("customer"))
+                       {
+	                 <td>@product.Vetname</td>
+	                   }
+                     @if(User.IsInRole("recept"))
+                     {
 	                <td>@product.Customername</td>
 	                <td>@product.Address</td>
 	                <td>@product.Number</td>
+	                
+	                 <td>@product.PetName</td>
+	                 <td>@product.Type</td>
+	                 <td>@product.Color</td>
+	                 <td>@product.Breed</td>
+	                  <td>@product.Bloodtype</td>
+	                <td>@product.Gender</td>
+	                <td>@product.Bdate</td>
+	                }
+	                
+	                 @if(User.IsInRole("owner"))
+                     {
+	                <td>@product.Customername</td>
+	                <td>@product.Address</td>
+	                <td>@product.Number</td>
+	                
+	                 <td>@product.PetName</td>
+	                 <td>@product.Type</td>
+	                 <td>@product.Color</td>
+	                 <td>@product.Breed</td>
+	                  <td>@product.Bloodtype</td>
+	                <td>@product.Gender</td>
+	                <td>@product.Bdate</td>
+	                }
 	                <td>@product.Concern</td>
 	                <td>@product.Dayofappointment</td>
-	                <td>@product.VetId</td>
 
-	                <td><a href="/Reception/Add" class="btn btn-warning btn-sm">Add</a></td>
-	               
+
+                    @if(User.IsInRole("recept"))
+                     {
+	                <td><a href="/Reception/Add/@product.Id" class="btn btn-warning btn-sm">Add</a></td>
+	                 }
+	                 @if(User.IsInRole("customer"))
+                     {
+	                <td><a href="/Appointment/Delete/@product.Id" class="btn btn-warning btn-sm" onclick="return confirm('Are you sure to Cancel your appointment?')">Cancel Appoinment</a></td>
+	                 }
 	              
 	               
 	            </tr>
@@ -47,4 +118,35 @@
         </tbody>
     </table>
     
+ 
+ if(TempData["message"] != null)
+    {
+    
+        <script>    
+    function func(nam) {
+        alert(nam);
     }
+    </script>
+		<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+		<script>func('Added Successfuly..') </script>
+    
+    
+    }
+        
+ 
+   
+    
+     if(TempData["deletemsg"] != null)
+    {
+    
+    <script>    
+       function func(nam) {
+        alert(nam);
+    }
+    </script>
+	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+	<script>func('Your Appointment is Canceled') </script>
+    
+    
+    }
+   }

@@ -55,6 +55,9 @@ namespace SharpDevelopMVC4.Controllers
 				
 				animal.VetId = Id;
 				
+				
+				TempData["animalmsg"] = "text";
+				
 			  _db.Animalsacoms.Add(animal);
 			  _db.SaveChanges();
 			  return View();

@@ -29,6 +29,7 @@
       
       <div class="col-lg-9">
          <br><br><br>
+         
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -58,7 +59,7 @@
         
         
         
-        <form action="/crudsample/search">
+   <form action="/crudsample/search">
 
    
    <div class="container">  
@@ -135,6 +136,18 @@
 <!-- /.row -->
 
 
-
+ if(TempData["customer"] != null)
+    {
+    
+    <script>    
+    function func(nam) {
+        alert(nam);
+    }
+    </script>
+    
+	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+	<script>func('Added Successfuly..') 
+	</script>   
+    }
 
 }

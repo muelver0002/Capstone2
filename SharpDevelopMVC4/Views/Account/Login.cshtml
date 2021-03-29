@@ -24,12 +24,22 @@
 
                 <div class="form-group">
                     <label for="Input_Email">User Name</label>
-                    <input class="form-control" type="text" id="username" name="username" />
+                    <input class="form-control" type="text" id="username" name="username" required />
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input class="form-control" type="password" id="password" name="password" />
+                    <input class="form-control" type="password" id="myInput" name="password" required/>
                 </div>
+                
+                 <div class="form-group">
+                    <div class="checkbox">
+                         <label for="see">
+                            <input type="checkbox" id="see" onclick="myFunction()">
+                            Show Password
+                        </label>
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <div class="checkbox">
                         <label for="rememberme">
@@ -56,3 +66,45 @@
 
 
 </div>
+
+
+<script>
+function myFunction() {
+
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  }
+  else {
+    x.type = "password";
+  }
+}
+</script>
+
+ @if(TempData["register"] != null)
+    {
+    
+    <script>    
+      function func(nam) {
+        alert(nam);
+    }
+    </script>
+	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+	<script>func('Successfully Registerd..') </script>
+    
+    
+    }
+    
+     @if(TempData["ownersucces"] != null)
+    {
+    
+    <script>    
+      function func(nam) {
+        alert(nam);
+    }
+    </script>
+	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+	<script>func('Successfully Registerd..') </script>
+    
+    
+    }

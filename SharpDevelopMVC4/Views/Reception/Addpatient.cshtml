@@ -1,0 +1,155 @@
+﻿@{
+	ViewBag.Title = "Addpatient";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Request.IsAuthenticated)
+     {
+<h2>Addpatient</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <section>
+        
+            <form action="/Reception/Addpatient" method="post">
+            	 
+            	 <div class="form-group">
+                    <label >Full Name <label style="color:red">*</label></label>
+                    <input class="form-control"  type="text" id="Customername" name="Customername" required />
+                </div>  
+               
+             
+
+
+                <div class="form-group">
+                    <label >Contact Number <label style="color:red">*</label></label>
+                    <input class="form-control"  type="number" id="Number" name="Number" required/>
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label >Address <label style="color:red">*</label></label>
+                    <input class="form-control"  type="text" id="Adrress" name="Adrress"  required/>
+                </div>
+                
+                 @{
+				   int i =0;
+				 
+				 }
+				 
+				<div class="form-group">
+				<label>Select Services<label style="color:red">*</label><br>
+				 @foreach(var service in ViewBag.Id)
+				 {
+				  <input type="checkbox" name="Services[]" value="@service.Servicesname" > @service.Servicesname
+				  <br>
+				 }
+				 
+                <br>
+                 <div class="form-group">
+                    <label >Pet Name <label style="color:red">*</label></label>
+                    <input class="form-control" type="text" id="Petname" name="Petname" required/>
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label >Pet Type <label style="color:red">*</label></label>
+                    <input class="form-control"  type="text" id="Pettype" name="Pettype" required/>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label >Pet Breed <label style="color:red">*</label></label>
+                    <input class="form-control"  type="text" id="PetBreed" name="PetBreed" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label >Pet Color <label style="color:red">*</label></label>
+                    <input class="form-control"  type="text" id="Petcolor" name="Petcolor" required/>
+                </div>
+               
+
+                <div class="form-group">
+                    <label >Blood Type <label style="color:red">*</label></label>
+                    <input class="form-control" type="text" id="Bloodtype" name="Bloodtype" required/>
+                </div>
+                
+                 
+                
+                
+                <label>Gender<label style="color:red">*</label>
+				   <select name="Gender" class="form-control" required>
+				   <option>Gender</option>
+				  
+				    <option value="Male">Male</option>
+				    <option value="Female">Female</option>
+				      
+				   </select>
+				   
+				 </div>
+                
+                
+                
+                
+                 <div class="form-group">
+                    <label >Birth Date <label style="color:red">*</label></label>
+                    <input class="form-control"  type="date" id="Bdate" name="Bdate" required/>
+                </div>
+                <div class="form-group">
+                    <label >Pet Age<label style="color:red">*</label></label>
+                    <input class="form-control" type="number" id="Petage" name="Petage" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label >Pet Weight <label style="color:red">*</label></label>
+                    <input class="form-control" type="number" id="Weight" name="Weight" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label >Pet Temperature <label style="color:red">*</label></label>
+                    <input class="form-control" type="number" id="Temperature" name="Temperature" required/>
+                </div>
+                
+              
+                
+                 <div class="form-group">
+                    <label >Complain <label style="color:red">*</label></label>
+                    <textarea class="form-control" type="text" id="Complain" name="Complain" rows="4" cols="50" required>
+                    </textarea>
+                </div>
+               
+               
+               
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Send</button>
+
+
+                </div>
+                <div class="form-group">
+                </div>				               
+            </form>
+            
+        </section>
+    </div>
+
+
+</div>
+
+
+
+if(ViewBag.message != null)
+    {
+    
+        <script>    
+    function func(nam) {
+        alert(nam);
+    }
+    </script>
+		<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
+		<script>func('Added Successfuly..') </script>
+    
+    
+    }
+
+ }

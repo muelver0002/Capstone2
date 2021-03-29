@@ -36,7 +36,7 @@ namespace SharpDevelopMVC4.Controllers
 		
 		public ActionResult Create()
 		{
-		
+		    
 			return View();
 		
 		}
@@ -53,6 +53,8 @@ namespace SharpDevelopMVC4.Controllers
 				int Id = VetId.Id;
 				
 				service.VetId = Id;
+				
+				TempData["servicetmsg"] ="text";
 				
 			  _db.Servicesacons.Add(service);
 			  _db.SaveChanges();

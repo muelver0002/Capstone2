@@ -388,7 +388,7 @@ namespace SharpDevelopMVC4.Controllers
 				if(fileUpload != null)
 					product.PictureFilename = fileUpload.SaveAsJpegFile(product.Name);
 				
-				
+				TempData["ownersucces"] ="text";
 				_db.Vetowners.Add(vet);
 				_db.SaveChanges();
 				

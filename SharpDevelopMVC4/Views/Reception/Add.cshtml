@@ -1,9 +1,14 @@
-﻿@{
+﻿@model SharpDevelopMVC4.Models.Appointment
+@{
 	ViewBag.Title = "Reception";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
  @if (Request.IsAuthenticated)
      {
+      if(User.IsInRole("recept"))
+	  {
 <h2>Reception</h2>
 
 <div class="row">
@@ -13,59 +18,115 @@
             <form action="/Reception/add" method="post">
             	 
             	 <div class="form-group">
-                    <label >Full Name <label style="color:red">*</label></label>
-                    <input class="form-control" type="text" id="Customername" name="Customername" required />
+                    <input class="form-control" value="@Model.CustId"  type="hidden" id="" name="CustId" required />
+                </div>  
+            	 
+            	 <div class="form-group">                
+                    <input class="form-control" value="@Model.Id" type="hidden" id="" name="ID" required />
+                </div>  
+            	 
+            	 <div class="form-group">
+                    <label >Full Name <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Customername" type="text" id="" name="" disabled />
+                    
+                    <input class="form-control" value="@Model.Customername" type="hidden" id="Customername" name="Customername"  />
                 </div>  
                
              
 
 
                 <div class="form-group">
-                    <label >Contact Number <label style="color:red">*</label></label>
-                    <input class="form-control" type="number" id="Number" name="Number" required/>
+                    <label >Contact Number <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Number" type="number" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Number" type="hidden" id="Number" name="Number" />
                 </div>
                 
                 
                  <div class="form-group">
-                    <label >Address <label style="color:red">*</label></label>
-                    <input class="form-control" type="text" id="Adrress" name="Adrress"  required/>
+                    <label >Address <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Address" type="text" id="" name=""  disabled/>
+                    
+                    <input class="form-control" value="@Model.Address" type="hidden" id="Adrress" name="Adrress"  />
                 </div>
                 
                 <div class="form-group">
-                    <label >Concern <label style="color:red">*</label></label>
-                    <textarea class="form-control" type="text" id="Concern" name="Concern" rows="4" cols="50" required>
+                    <label >Concern <label style="color:red"></label></label>
+                    <textarea class="form-control" value="@Model.Concern" type="text" id="Concern" name="Concern" rows="4" cols="50" required>
+                    @Model.Concern
                     </textarea>
                 </div>
                 
                  <div class="form-group">
-                    <label >Pet Type <label style="color:red">*</label></label>
-                    <input class="form-control" type="text" id="Pettype" name="Pettype" required/>
+                    <label >Pet Name <label style="color:red"></label></label>
+                     <input class="form-control" value="@Model.PetName" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.PetName" type="hidden" id="Petname" name="Petname" />
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label >Pet Type <label style="color:red"></label></label>
+                    
+                    <input class="form-control" value="@Model.Type" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Type" type="hidden" id="Pettype" name="Pettype" required/>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label >Pet Breed <label style="color:red"></label></label>
+                     <input class="form-control" value="@Model.Breed" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Breed" type="hidden" id="PetBreed" name="PetBreed" />
                 </div>
                 
                 <div class="form-group">
-                    <label >Pet Color <label style="color:red">*</label></label>
-                    <input class="form-control" type="text" id="Petcolor" name="Petcolor" required/>
+                    <label >Pet Color <label style="color:red"></label></label>
+                     <input class="form-control" value="@Model.Color" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Color" type="hidden" id="Petcolor" name="Petcolor" />
                 </div>
+                
+                
+                 <div class="form-group">
+                    <label >Blood Type <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Bloodtype" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Bloodtype" type="hidden" id="Bloodtype" name="Bloodtype" />
+                </div>
+                
+                 <div class="form-group">
+                    <label >Gender <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Gender" type="text" id="" name="" disabled/>
+                    
+                    <input class="form-control" value="@Model.Gender" type="hidden" id="Gender" name="Gender" />
+                </div>
+                
+                 <div class="form-group">
+                    <label >Birth Date <label style="color:red"></label></label>
+                    <input class="form-control" value="@Model.Bdate" type="text" id="" name="" disbled/>
+                    
+                    <input class="form-control" value="@Model.Bdate" type="hidden" id="Bdate" name="Bdate" />
+                </div>
+                
                 
                 <div class="form-group">
                     <label >Pet Age<label style="color:red">*</label></label>
-                    <input class="form-control" type="text" id="Petage" name="Petage" required/>
+                    <input class="form-control" type="number" id="Petage" name="Petage" required/>
                 </div>
                 
                 <div class="form-group">
                     <label >Pet Weight <label style="color:red">*</label></label>
-                    <input class="form-control" type="text" id="Weight" name="Weight" required/>
+                    <input class="form-control" type="number" id="Weight" name="Weight" required/>
                 </div>
                 
                 <div class="form-group">
                     <label >Pet Temperature <label style="color:red">*</label></label>
-                    <input class="form-control" type="text" id="Temperature" name="Temperature" required/>
+                    <input class="form-control" type="number" id="Temperature" name="Temperature" required/>
                 </div>
                 
-                <div class="form-group">
-                    <label >Date Today <label style="color:red">*</label></label>
-                    <input class="form-control" type="date" id="Datetoday" name="Datetoday" required/>
-                </div>
+              
                 
                  <div class="form-group">
                     <label >Complain <label style="color:red">*</label></label>
@@ -89,4 +150,10 @@
 
 
 </div>
+
+
+
+    
+
+   }
  }
