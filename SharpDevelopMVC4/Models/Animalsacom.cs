@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SharpDevelopMVC4.Models
 {
-	[Table("OV_Animals")]
+	[Table("OV_Animal")]
 	public class Animalsacom
 	{
 		public int Id {get;  set;}

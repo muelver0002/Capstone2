@@ -17,7 +17,15 @@ namespace SharpDevelopMVC4.Models
 		public string Password {get; set;}
 		public string RetypePassword {get; set;}
         
+        public string Cardname { get; set; }
         
+        public int Cardnum { get; set; }
+        
+        public string Datexpire { get; set; }
+        
+        public int Cvcode { get; set; }
+        
+        public string Terms { get; set; }
          
         public string Status {get; set;}
 

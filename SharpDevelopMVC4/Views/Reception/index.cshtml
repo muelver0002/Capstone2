@@ -15,22 +15,18 @@
                 <th> CustomerName</th>
                 <th> Address</th>
                 <th> Number</th>
-                <th> Concern</th>
+              
                 
-                <th> Petname</th>
+               
                 <th> Pettype</th>
                 <th> Petbreed</th>
-                <th> Petcolor</th>
+               
                 
-                 <th>BloodType</th>
-                  <th>Gender</th>
-                   <th>BirthDate</th>  
+               
                 
-                <th> Petage</th>
-                <th> Weight</th>
-                <th> Temperature</th>
+              
                 <th> Date</th>
-                <th> Complain</th>
+               
                 
               @if(User.IsInRole("doctor"))
                {
@@ -49,23 +45,17 @@
 	                <td>@product.Customername</td>
 	                <td>@product.Adrress</td>
 	                <td>@product.Number</td>
-	                <td>@product.Concern</td>
 	                
-	                <td>@product.Petname</td>
+	                
+	                
 	                <td>@product.Pettype</td>
 	                <td>@product.PetBreed</td>
-	                <td>@product.Petcolor</td>
 	                
-	                 <td>@product.Bloodtype</td>
-	                <td>@product.Gender</td>
-	                <td>@product.Bdate</td>
 	                
-	                <td>@product.Petage</td>
-	                <td>@product.Weight</td>
-	                <td>@product.Temperature</td>
+	               
 	                <td>@product.Datetoday</td>
 	                
-	                <td>@product.Complain</td>
+	               
 	               
 	                
 	              @if(User.IsInRole("doctor"))

@@ -28,16 +28,7 @@ namespace SharpDevelopMVC4.Controllers
 					List<Diagnoserecord> history = _db.Diagnoserecords.Where(x => x.Vetid == VetId).OrderByDescending(o => o.Id).ToList();				
 					return View(history);
 				}
-				if(User.IsInRole("customer"))
-				{
-					var cususer = Session["user"].ToString();
-					var CustomId = _db.Customers.Where(x => x.Username == cususer).FirstOrDefault();
-					
-					int customerId = CustomId.Id;
 				
-					List<Diagnoserecord> custhistory = _db.Diagnoserecords.Where(x => x.CustId == customerId).OrderByDescending(o => o.Id).ToList();
-					return View(custhistory);
-				}
 			        var user = Session["user"].ToString();
 					var Docuser = _db.Doctors.Where(x => x.Username == user).FirstOrDefault();
 					
@@ -60,6 +51,30 @@ namespace SharpDevelopMVC4.Controllers
 		public ActionResult Add(Diagnoserecord history)
 		{
 			return View();
+		}
+		
+		
+		
+		public ActionResult Viewhistory()
+		{
+			if(Session["user"] != null)
+			{
+			if(User.IsInRole("customer"))
+				{
+					var cususer = Session["user"].ToString();
+					var CustomId = _db.Customers.Where(x => x.Username == cususer).FirstOrDefault();
+					
+					int customerId = CustomId.Id;
+				
+					List<Diagnoserecord> custhistory = _db.Diagnoserecords.Where(x => x.CustId == customerId).OrderByDescending(o => o.Id).ToList();
+					return View(custhistory);
+				}
+			
+			
+			}
+			
+			
+			return RedirectToAction("Logoff","Account");
 		}
 		
 	}

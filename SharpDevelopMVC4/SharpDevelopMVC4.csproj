@@ -153,8 +153,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\CashierController.cs" />
     <Compile Include="Controllers\DiagnoseController.cs" />
     <Compile Include="Controllers\DiagnoserecordController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
@@ -177,6 +179,7 @@
     <Compile Include="Helpers\SimpleLogger.cs" />
     <Compile Include="Helpers\UserAccount.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AdminReg.cs" />
     <Compile Include="Models\Animalsacom.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -192,6 +195,8 @@
     <Compile Include="Models\Recept.cs" />
     <Compile Include="Models\Receptionist.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\Salesrecord.cs" />
     <Compile Include="Models\SdMvc4DbContext.cs" />
     <Compile Include="Models\Servicesacon.cs" />
     <Compile Include="Models\Vetowner.cs" />
@@ -227,9 +232,12 @@
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Register.cshtml" />
     <None Include="Views\Account\Vetowner.cshtml" />
+    <None Include="Views\Address\Add.cshtml" />
+    <None Include="Views\Address\Index.cshtml" />
     <None Include="Views\Animals\Create.cshtml" />
     <None Include="Views\Animals\Index.cshtml" />
     <None Include="Views\Appointment\Add.cshtml" />
+    <None Include="Views\Appointment\Appointmnet.cshtml" />
     <None Include="Views\Appointment\Index.cshtml" />
     <None Include="Views\Crudsample\Admins.cshtml" />
     <None Include="Views\Crudsample\Create.cshtml" />
@@ -239,9 +247,11 @@
     <None Include="Views\Crudsample\Manage.cshtml" />
     <None Include="Views\Crudsample\ManageCustom.cshtml" />
     <None Include="Views\Crudsample\Myinfo.cshtml" />
+    <None Include="Views\Crudsample\Payment.cshtml" />
     <None Include="Views\Crudsample\VetOwner.cshtml" />
     <None Include="Views\Crudsample\Viewpet.cshtml" />
     <None Include="Views\Diagnoserecord\Index.cshtml" />
+    <None Include="Views\Diagnoserecord\Viewhistory.cshtml" />
     <None Include="Views\Diagnose\Add.cshtml" />
     <None Include="Views\Diagnose\Index.cshtml" />
     <None Include="Views\Doctor\Index.cshtml" />
@@ -262,7 +272,8 @@
     <None Include="Views\Reception\Addpatient.cshtml" />
     <None Include="Views\Reception\index.cshtml" />
     <None Include="Views\Recept\AddItem.cshtml" />
-    <None Include="Views\Recept\Index.cshtml" />
+    <None Include="Views\Recept\Sales.cshtml" />
+    <None Include="Views\Recept\Viewsales.cshtml" />
     <None Include="Views\Services\Create.cshtml" />
     <None Include="Views\Services\Index.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
@@ -281,6 +292,7 @@
     <Folder Include="Views\Diagnose" />
     <Folder Include="Views\Diagnoserecord" />
     <Folder Include="Views\Medicine" />
+    <Folder Include="Views\Address" />
     <Folder Include="Views\Recept" />
     <Folder Include="Views\Receptionist" />
     <Folder Include="Views\Reception" />

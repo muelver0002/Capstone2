@@ -13,7 +13,6 @@ public partial class UserAccount
     // Change this to your DbContext class
     private static SdMvc4DbContext _db = new SdMvc4DbContext();
 
-
     #region UserAccountRepository
     public int Id { get; set; }
     //Login info
@@ -26,7 +25,6 @@ public partial class UserAccount
     public DateTime? LastLogin { get; set; }
     public bool IsActive { get; set; }
     public string Roles { get; set; } // comma-separated
-
 
     private static UserAccount CurrentUser = null;
 

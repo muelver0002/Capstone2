@@ -65,7 +65,7 @@ namespace SharpDevelopMVC4.Controllers
 			    {
 				return View(appoinments);
 			    }
-			   return RedirectToAction("index","Reception");
+			    return RedirectToAction("index","Reception");
 				}
 			
 			}
@@ -75,7 +75,7 @@ namespace SharpDevelopMVC4.Controllers
 		}
 		
 		[HttpPost]
-		public ActionResult Add(Patient patient, int ID)
+		public ActionResult Add(Patient patient, Appointment appoinment, int ID)
 		{
 			
 			if(Session["user"] != null)
@@ -102,8 +102,11 @@ namespace SharpDevelopMVC4.Controllers
 			var app = _db.Appointments.Find(ID);
 			if(app != null)
 			{
-				TempData["approve"] ="yes";
-				_db.Appointments.Remove(app);
+				app.Status = "Approved";
+				_db.Entry(app).State = System.Data.Entity.EntityState.Modified;
+				
+//				TempData["approve"] ="yes";
+//				_db.Appointments.Remove(app);
 				_db.SaveChanges();
 			
 			}

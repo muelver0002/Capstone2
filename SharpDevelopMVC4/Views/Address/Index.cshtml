@@ -1,0 +1,27 @@
+﻿@model List<SharpDevelopMVC4.Models.Address>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Barangay List</h2>
+<hr>
+<table class="table table-hover">
+        <thead>
+            <tr>
+               
+                <th>Pet Type</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var barangay in Model)
+			{
+	            <tr>
+	                   
+	                <td>@barangay.Addname</td>
+               
+	            </tr>
+			}
+        </tbody>
+    </table>

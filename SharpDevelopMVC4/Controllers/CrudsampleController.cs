@@ -18,7 +18,8 @@ namespace SharpDevelopMVC4.Controllers
 	// GET: Products
 	public ActionResult Index(string searchString, string seeavail)
 		{
-			
+		     List<Address> address = _db.Addreses.ToList();
+		     ViewBag.Address = address;
 			
 			 if(User.IsInRole("admin"))
 	           {
@@ -28,10 +29,11 @@ namespace SharpDevelopMVC4.Controllers
 			
 					if(res == null)
 					{
-					
+					ViewBag.Address = address;
 					return View();          
 					}
 					
+					ViewBag.Address = address;
 					return View(res);   
 	         
 			   }
@@ -49,7 +51,7 @@ namespace SharpDevelopMVC4.Controllers
 					
 					return View();          
 					}
-					
+					ViewBag.Address = address;
 					return View(res);   
 	         
 			   }
@@ -70,28 +72,29 @@ namespace SharpDevelopMVC4.Controllers
 				string Add = adds.Address;
 				string City = adds.AddCity;
 				
+				//if walay address
 				if(Add == null || City == null)
 				{
-				   ViewBag.message="There is no clinic available in your location!";
+				   ViewBag.message="You donot have an address!";
 				   string status = "Approve";
 				   List<Product> res = _db.Products.Where(x => x.Status.ToLower().Contains(status.ToLower())).OrderBy(o => o.Name).ToList();
 			
 					if(res == null)
 					{
-					
+					ViewBag.Address = address;
 					return View();          
 					}
-					
+					ViewBag.Address = address;
 					return View(res);    
 				
 				}
 					
 				
-				  
+				  //if ang adress wala nag match
 				if(!Vet.Any(x => x.Address.ToLower().Contains(Add.ToLower())))
 				{
 					
-					ViewBag.message="There is no clinic available in your location!";
+					ViewBag.message="There is no clinic available in your Adress!";
 
 					string status = "Approve";
 					List<Product> res = _db.Products.Where(x => x.Status.ToLower().Contains(status.ToLower())).OrderBy(o => o.Name).ToList();
@@ -100,14 +103,15 @@ namespace SharpDevelopMVC4.Controllers
 					{
 					ViewBag.message="Hello everyone";	
 					List<Product> ress = _db.Products.Where(x => x.Status.ToLower().Contains(status.ToLower())).OrderBy(o => o.Name).ToList();
+					ViewBag.Address = address;
 					return View(ress);          
 					}
-					
+					ViewBag.Address = address;
 					return View(res);    
 			                
 				
 				
-				}
+				    }
 			
                      // if Nag match Ang address 
 				
@@ -121,11 +125,14 @@ namespace SharpDevelopMVC4.Controllers
 					{
 					  string stats = "Approve";
 			         List<Product> ress = _db.Products.Where(x => x.Status.ToLower().Contains(stats.ToLower())).ToList();
+			         
+			         ViewBag.Address = address;
 			         return View(ress);
 					}
 					ViewBag.messages="Clinic's Near you!";
 					ViewBag.Adds="See More Availabe Clinic!";
 					
+					ViewBag.Address = address;
 					return View(res);
 				
 				}
@@ -140,18 +147,22 @@ namespace SharpDevelopMVC4.Controllers
 				
 					if(res == null)
 					{
+					ViewBag.Address = address;
 					 return View();
             
 					}
 					ViewBag.messages="Clinic's Near you!";
 					ViewBag.Adds="See More Availabe Clinic!";
+					ViewBag.Address = address;
 					
+					ViewBag.Address = address;
 					return View(res);
 				
-				}
-				return View();
+				   }
+				    ViewBag.Address = address;
+			    	return View();
 			
-			}
+			       }
 			
 			
 			      
@@ -177,7 +188,9 @@ namespace SharpDevelopMVC4.Controllers
 			public 	ActionResult Search(string Key)
 		    {
 		        string status = "Approve";
-			
+		        List<Address> address = _db.Addreses.ToList();
+		        ViewBag.Address = address;
+		        
 			if(string.IsNullOrWhiteSpace(Key))
 			{  
 				List<Product> searchResult = _db.Products.Where(x => x.Status.ToLower().Contains(status.ToLower())).OrderBy(o => o.Name).ToList();
@@ -191,7 +204,9 @@ namespace SharpDevelopMVC4.Controllers
 //				{
 //					searchResult = searchResult.OrderByDescending(x => x.Name).ToList();
 //				}
-				        						
+				 
+				List<Address> addresses = _db.Addreses.ToList(); 
+				ViewBag.Address = addresses;       						
 				return View("Index", searchResult);
 			
 			}
@@ -213,6 +228,8 @@ namespace SharpDevelopMVC4.Controllers
 //					searchResult = searchResult.OrderByDescending(x => x.Name).ToList();
 //				}
 				
+				List<Address> addresss = _db.Addreses.ToList();
+				 ViewBag.Address = addresss;
 				return View("Index", searchResult);	
 		
 		}
@@ -315,6 +332,13 @@ namespace SharpDevelopMVC4.Controllers
 		
 		// [Authorize(Roles = "staff")]
 		public ActionResult Manage()
+		{
+			var items = _db.Products.ToList();           
+			return View(items);            
+		}	
+		
+		
+			public ActionResult Payment()
 		{
 			var items = _db.Products.ToList();           
 			return View(items);            

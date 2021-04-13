@@ -1,0 +1,51 @@
+﻿@model List<SharpDevelopMVC4.Models.Product>
+@{
+	ViewBag.Title = "Payment";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Payment</h2>
+
+ <div class="table-responsive" >   
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+               
+                <th>Name</th>
+                <th>Location</th>
+                <th>Contact</th>
+                
+                 <th>CardName</th>
+                  <th>CardNumber</th>
+                  <th>CvCode</th>
+                   <th>ExpiryDate</th>                
+                 
+               
+              
+                  
+                  
+            </tr>
+        </thead>
+        <tbody>
+			@foreach(var product in Model)
+			{
+	            <tr>
+	                
+	                <td>@product.Name</td>
+	                <td>@product.Address<br>@product.AddCity</td>
+	                <td>@product.contactInfo</td>
+	                
+	                 <td>@product.Cardname</td>
+	                 
+	                 <td>@product.Cardnum</td>
+	                 
+	                 <td>@product.Cvcode</td>
+	                 
+	                 <td>@product.Datexpire</td>
+	                
+	                
+	                 
+	            </tr>
+			}
+        </tbody>
+    </table>

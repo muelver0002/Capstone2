@@ -19,7 +19,14 @@ namespace SharpDevelopMVC4.Models
 		
 		public int Total { get; set; }
 		
-		public string Date { get; set; }
+		public int ReceptionistId { get; set;}
+		
+		public int DoctorId { get; set;}
+		[Display(Name = "Date")]
+        [DisplayFormat(DataFormatString = "{0:MMM-yyyy}")] 
+		public DateTime? Date { get; set; }
+		
+		
 		
 		public string CustName { get; set; }
 		

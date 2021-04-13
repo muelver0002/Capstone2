@@ -1,0 +1,30 @@
+﻿@model List<SharpDevelopMVC4.Models.Diagnoserecord>
+@{
+	ViewBag.Title = "Viewhistory";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+ <div class="col-lg-6">
+ <h2>Viewhistory</h2>
+@foreach(var product in Model)
+{
+        <div class="card mt-4">
+          
+          <div class="card-body">
+            <h3 class="card-title">@product.Vetname</h3>
+            
+            <p class="card-text"><a style="color:red">Doctor</a>: @product.DocName</p>
+            <p class="card-text"><a style="color:red">Concern</a>: @product.Concern</p>
+            <p class="card-text"><a style="color:red">Pet name</a>: @product.Petname</p>
+            <p class="card-text"><a style="color:red">Date</a>: @product.Datetoday</p>
+            <p class="card-text"><a style="color:red">Complain</a>: @product.Complain</p>
+            <p class="card-text"><a style="color:red">Diagnose</a>: @product.Diagnoselater</p>
+            <p class="card-text"><a style="color:red">Return Check Up</a>: @product.Followupdate</p>
+           
+          </div>
+        </div>
+        
+}        
+   </div>

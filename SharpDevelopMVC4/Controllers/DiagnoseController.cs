@@ -56,10 +56,7 @@ namespace SharpDevelopMVC4.Controllers
 			var user = Session["user"].ToString();
 			var vetid = _db.Doctors.Where(x => x.Username == user).FirstOrDefault();
 			int vetId = vetid.Vetid;
-		    
-
-            
-  			
+			
 			Patient patient = _db.Patients.Find(Id);
 			if(patient != null)
 			{
@@ -77,7 +74,7 @@ namespace SharpDevelopMVC4.Controllers
 			
 			return View(patient);
 			}
-			return RedirectToAction("index","Diagnose");
+			return RedirectToAction("index","reception");
 			}
 		  return RedirectToAction("Logoff", "Account");
 		}
@@ -85,7 +82,6 @@ namespace SharpDevelopMVC4.Controllers
 		[HttpPost]
 		public ActionResult Add(Diagnose diagnose,Diagnoserecord history , int ID)
 		{
-			
 			
 			if(Session["user"] != null)
 			{
@@ -124,12 +120,26 @@ namespace SharpDevelopMVC4.Controllers
 					
 				}
 				
-				
-				
 			   return RedirectToAction("index", "Diagnose");
 			
 			}
 			return RedirectToAction("Logoff", "Account");
 		}
+		
+		
+		
+		public ActionResult Delete(int Id)
+		{
+			var diagnose = _db.Diagnoses.Find(Id);
+			if(diagnose != null)
+			{
+				_db.Diagnoses.Remove(diagnose);
+				_db.SaveChanges();
+			
+			}
+		     return RedirectToAction("Index");
+		
+		}
+		
 	}
 }

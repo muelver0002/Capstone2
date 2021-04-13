@@ -163,53 +163,7 @@ namespace SharpDevelopMVC4.Controllers
 		
 		
 		}
-		[HttpGet]
-	    public ActionResult Vetowner()
-		{
-		
-			return View();
-		}
-			
-			
-		[HttpPost]
-		public ActionResult Vetowner(RegisterViewModel newUser, string RetypePassword)
-		{
-			
-			if(newUser.Password == RetypePassword) {
-				
-		     var res = UserAccount.Create(newUser.UserName, newUser.Password, "owner");
-				
-				if (res != null) {
-				
-					var newtVetOwner = new Vetowner();
-					newtVetOwner.Fullname = newUser.Fullname;
-					
-					newtVetOwner.Username= newUser.UserName;
-					newtVetOwner.Password = newUser.Password;
-					
-					_db.Vetowners.Add(newtVetOwner);
-			     	_db.SaveChanges();
-			     	
-			     	ViewBag.message="Registered Successfully!";
-			     	return View();
-			     	
-					
-				}
-				ViewBag.messages = "Registration Failed";
-			}
-			
-			
-			else{
-				
-			ViewBag.messages="Password not matched";
-			
-			}
-			
-			return View();
-		   
-		
-		
-		}
+	
 		
 	}
 }

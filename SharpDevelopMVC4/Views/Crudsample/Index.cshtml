@@ -66,7 +66,16 @@
     <div class="row">
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" name="Key"  placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" required/>
+                 <!--/.   <input class="form-control" type="text" name="Key"  placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" required/> -->
+                    
+                    <input class="form-control" type="text" name="Key"  placeholder="Search for..." list="cityname" aria-label="Search" aria-describedby="basic-addon2" required/>
+					    <datalist id="cityname">
+					      @foreach(var barangay in  ViewBag.Address)
+						   {
+						    <option value="@barangay.Addname"></option>
+						   } 
+					    </datalist>
+                    
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">🔍</button>
                     </div>
@@ -134,20 +143,5 @@
 
 </div>
 <!-- /.row -->
-
-
- if(TempData["customer"] != null)
-    {
-    
-    <script>    
-    function func(nam) {
-        alert(nam);
-    }
-    </script>
-    
-	<script src="~/Scripts/YourJsFileWherFuncIsDefined.js"></script>
-	<script>func('Added Successfuly..') 
-	</script>   
-    }
 
 }

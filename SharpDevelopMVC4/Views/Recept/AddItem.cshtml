@@ -6,112 +6,237 @@
 	
 }
 
-<h2>AddItem</h2>
+@if(ViewBag.DiagnoseId != null)
+{
+ <head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+</head>
+
 
 <div class="row">
-<div class="col-lg-3">
+<div class="col-md-12">
+<br>
+<br>
+<div class="row">
+<h3>MEDICINE LIST</h3>
+<div style=" overflow: scroll; height:200px; width:100%">
+<table>
+        <thead>
+            <tr>
+                
+                <th>Unit</th>               
+                
+                <th>Brand</th>
+                
+                <th>Price</th>
+              
+                               
+            </tr>
+        </thead>
+       
+        <tbody>
+			@foreach(var product in ViewBag.MedList)
+			{
+	            <tr>
+	                <td>@product.Name</td>	               
+	                
+	                <td>@product.Brand</td>     
+
+                    <td>@product.Price</td>
+	            </tr>
+			}
+        </tbody>
+        
+    </table>
+   
+     </div> 
+</div>
+ <hr> 
+</div>
+
+<div class="col-md-4">
+
+<br>
+<h4>CUSTOMER INFO</h4>
+<div style=" overflow: scroll; height: 250px; width: 230px">
+       <div class="form-group">
+        <label>Customer Name:<label style="color:red"></label>
+        <input class="form-control" value="@patient.Customername"  type="text" id="" name="Id" disabled />
+        
+        <input class="form-control" value="@patient.Customername"  type="hidden" id="" name="Id" required />
+       </div>    
+        
+        <div class="form-group">
+         <label>Pet Name:<label style="color:red"></label>
+        <input class="form-control" value="@patient.Petname"  type="text" id="" name="" disabled />
+        
+        <input class="form-control" value="@patient.Petname"  type="hidden" id="" name="" required />
+       </div> 
+       
+       <div class="form-group">
+       <label>Pet Breed:<label style="color:red"></label>
+        <input class="form-control" value="@patient.PetBreed"  type="text" id="" name="Id" disabled />
+        
+         <input class="form-control" value="@patient.PetBreed"  type="hidden" id="" name="Id" required />
+       </div> 
+       
+       
+        <div class="form-group">
+          <label >Concern <label style="color:red"></label></label>
+            <textarea class="form-control" value="@patient.Complain" type="text" id="Complain" name="Complain" rows="4" cols="50" required>@patient.Concern</textarea>
+        </div>
+       
+       
+		<div class="form-group">
+		<label >Complain <label style="color:red"></label></label>
+		<textarea class="form-control" value="@patient.Complain" type="text" id="Complain" name="Complain" rows="4" cols="50" required>@patient.Complain</textarea>
+		</div>
+                
+        <div class="form-group">
+        <label >Diagnose <label style="color:red"></label></label>
+        <textarea class="form-control" type="text" value="@patient.Diagnoselater" id="Diagnoselater" name="Diagnoselater" rows="4" cols="50" required>@patient.Diagnoselater</textarea>
+        </div>
+       
+       
+       <div class="form-group">
+        <input class="form-control" value=""  type="hidden" id="" name="" required />
+       </div>
 
 
+     </div>
+  </div>
+  
+  
+  <div class="col-md-4">
+     <section>
+     <br>
+  <h4>PRESCRIPTION/SERVICES</h4>
+    
  <form action="/Recept/AddItem" method="post">
             	
             	 <div class="form-group">
                     <input class="form-control" value="@patient.CustId"  type="hidden" id="" name="Id" required />
+                 </div>  
+                
+                <div class="form-group">
+                    <input class="form-control" value="@patient.Id"  type="hidden" id="" name="PId" required />
                 </div>  
                 
                 <div class="form-group">
                     <input class="form-control" value="@patient.Customername"  type="hidden" id="" name="cusname" required />
                 </div>
 
-                <div class="form-group">
-   
-				   <label>Select Medicine<label style="color:red">*</label>
-				   <select name="medicineId" class="form-control" required>
-				   <option></option>
+           <div class="row">
+            <h2></h2>   
+            <br>
+           <div style=" float: left; ">
+                <div class="form-group">				   
+				   <select  name="medicineId" class="form-control" required>
+				   <option value="0">-Select Medicine-</option>
 				   @foreach(var pro in ViewBag.MedList)
 				   {
 				    <option value="@pro.Id">@pro.Name</option>
 				   }   
-				   </select>
-				   
+				   </select>				  
 				 </div>
-                 <div class="form-group">
-                    <label>Qty<label style="color:red">*</label>
-                    <input class="form-control" type="text" id="Breed" name="qty1"  required/>
-                   
-                </div>
-
-            	   <div class="form-group">
-   
-				   <label>Select Service<label style="color:red">*</label>
-				   <select name="serviceId" class="form-control" required>
-				   <option></option>
+			 </div>
+			 
+             <div  style="margin-left: 10px; ">   
+             <div class="form-group">             
+				  <input  value="0" Placeholder="Qty"  style="font-size: 20px;  text-align: center" min="0" max="10" type="number" id="" name="qty1" />
+			 </div>  
+             </div>  			 
+		   </div>
+                
+             
+             <div class="row">
+               <div class="form-group">
+			   <select name="serviceId" class="form-control" >
+				   <option value="0">-Select Services-</option>
 				   @foreach(var cat in ViewBag.Servicelist)
 				   {
 				    <option value="@cat.Id">@cat.Servicesname</option>
 				   }   
-				   </select>
-				   
-				 </div>
-            	 <div class="form-group">
-                    <label>Qty<label style="color:red">*</label>
-                    <input class="form-control" type="number" id="PetName" name="qty2" required />
-                </div>  
-                
-                
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create</button>
-                     <a href="/Home/index" class="btn btn-secondary ">Cancel</a>
-                     <p style="color:red">@ViewBag.message</p>
-                </div>
-                <div class="form-group">
-                </div>				               
+				</select>				  
+			</div>			 
+		   </div>
+            
+             <div class="row">            
+             <div style=" float: left; ">   
+            <div class="form-group">
+               <button style="font-size: 20px;" type="submit" class="btn btn-primary" >ADD</button>
+            </div>
+             </div>
+             
+			<div  style="margin-left: 50px; ">	
+            <div class="form-group">
+               <a href="/Recept/Done/@patient.Id"  style="font-size: 20px; " class="btn btn-warning btn-sm" onclick="return confirm('Hello')">DONE</a>
+            </div>
+             </div>
+          
+          </div>            
             </form>
-
-
-</div>
-    <div class="col-md-4">
-        <section>
-        <div style=" overflow: scroll; height: 500px;">
-        <table class="table table-hover">
+           
+            
+        </section>
+    </div>
+@if(ViewBag.receptlist != null)
+{
+ <div class="col-md-4">
+ <div style="margin-top: 0px;">
+  <br>
+  <h4>ADDED LIST</h4>
+  <div class="row">
+ 
+  <div style=" overflow: scroll; height:250px; width:350px; margin-left: 20px;">
+<table>
         <thead>
             <tr>
                 
-                <th>Id</th>
-               
-                 
-                <th>price</th>
+                <th>Unit</th>               
+                <th>Price</th>
                 <th>Qty</th>
                 <th>Total</th>
-                 
-                 
+              
+                               
             </tr>
         </thead>
         <tbody>
-			@foreach(var product in ViewBag.recpt)
+			@foreach(var product in ViewBag.receptlist)
 			{
 	            <tr>
 	                
-	                <td>@product.Id</td>
-	               
+	              
+	              
+	                <td>@product.PName</td>
 	                <td>@product.Price</td>
 	                <td>@product.Qty</td>
 	                <td>@product.Total</td>
-	                
-	                
-	                 
-	                 
 	                 
 	            </tr>
 			}
         </tbody>
     </table>
-        </div>
-        
-        
-           
-            
-        </section>
-    </div>
-
-
+     </div> 
+  </div>
+ </div>
+  </div>
+}
 </div>
+
+}

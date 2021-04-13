@@ -29,6 +29,7 @@ td, th {
 
 <div class="row">
 <div class="col-lg-4">
+<div style=" overflow: scroll; height: 500px; width: 300px">
  <form action="/Diagnose/Add" method="post">
             	 
             	<div class="form-group">
@@ -71,9 +72,7 @@ td, th {
                 <div class="form-group">
                     <label >Concern <label style="color:red"></label></label>
                    
-                    <textarea class="form-control" value="@Model.Concern" type="hidden" id="Concern" name="Concern" rows="4" cols="50" >
-                    @Model.Concern
-                    </textarea>
+                    <textarea class="form-control" value="@Model.Concern" type="hidden" id="Concern" name="Concern" rows="4" cols="50" >@Model.Concern</textarea>
                 </div>
                 
                  <div class="form-group">
@@ -167,15 +166,12 @@ td, th {
                 
                 <div class="form-group">
                     <label >Complain <label style="color:red">*</label></label>
-                    <textarea class="form-control" value="@Model.Complain" type="text" id="Complain" name="Complain" rows="4" cols="50" required>
-                    @Model.Complain
-                    </textarea>
+                    <textarea class="form-control" value="@Model.Complain" type="text" id="Complain" name="Complain" rows="4" cols="50" required>@Model.Complain</textarea>
                 </div>
                 
                <div class="form-group">
                     <label >Diagnose <label style="color:red">*</label></label>
-                    <textarea class="form-control" type="text" id="Diagnoselater" name="Diagnoselater" rows="4" cols="50" required>
-                    </textarea>
+                    <textarea class="form-control" type="text" id="Diagnoselater" name="Diagnoselater" rows="4" cols="50" required></textarea>
                 </div>
                 
                  <div class="form-group">
@@ -188,23 +184,20 @@ td, th {
                     <button type="submit" class="btn btn-primary">Save</button>
 
 
-                </div>
-                
-                
-                <div class="form-group">
-                </div>				               
+                </div>			               
             </form>
-            
+          </div>  
             
 </div>
- <div class="col-lg-4">
+ <div class="col-md-4">
    <section>
     
                 
 <div> 
 @if(ViewBag.history != null)
 {
-<h1 class="my-4" >Patient History</h1>                      
+<h1>Patient History</h1>       
+<div style=" overflow: scroll; height: 300px; width: 500px">
 <table>
         <thead>
             <tr>
@@ -233,6 +226,7 @@ td, th {
 			}
         </tbody>
     </table>
+     </div> 
    }
    </div>        
         </section>
@@ -242,5 +236,5 @@ td, th {
 
 
 </div>
-
 }
+

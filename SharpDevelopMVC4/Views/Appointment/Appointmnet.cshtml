@@ -1,0 +1,43 @@
+﻿@model List<SharpDevelopMVC4.Models.Appointment>
+@{
+	ViewBag.Title = "Appointmnet";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-lg-6">
+<h2>Appointment List</h2>
+@foreach(var product in Model)
+			{
+
+
+    <div class="card mt-4">
+
+          <div class="card-body">
+            <h3 class="card-title">@product.Vetname</h3>
+            <h4>Concern:@product.Concern</h4>        	
+            <p class="card-text"><a style="">Date</a>: @product.Dayofappointment</p>
+            <p class="card-text"><a style="color:red">Status</a>: @product.Status</p>
+           <!-- <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars -->
+           @if(@product.Status == "Approved")
+           {
+           <div class="row">                 
+           <div style="margin-left: 20px; ">
+           <button type="" class="btn btn-warning btn-sm" disabled>Cancel Appoinment</button>
+           </div>
+           </div>
+           }
+           @if(@product.Status != "Approved")
+           {
+           <div class="row">                 
+           <div style="margin-left: 20px; ">
+           <a href="/Appointment/Delete/@product.Id" class="btn btn-warning btn-sm" onclick="return confirm('Are you sure to Cancel your appointment?')">Cancel Appoinment</a>
+           </div>
+           </div>
+           }
+          </div>
+        </div>
+        
+    
+    
+    }
+    </div>

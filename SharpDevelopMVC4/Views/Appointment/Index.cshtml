@@ -6,7 +6,7 @@
 
  @if (Request.IsAuthenticated)
      {
-<h2>Appoinment List</h2>
+<h2>Reservation List</h2>
 
 <table class="table table-responsive table-hover">
         <thead>
@@ -21,13 +21,7 @@
                 <th> Address</th>
                 <th> Number</th>
                 
-                 <th> PetName</th>
-                 <th> PetType</th>
-                 <th> PetColor</th>
-                 <th> PetBreed</th>
-                   <th>BloodType</th>
-                  <th>Gender</th>
-                   <th>BirthDate</th>                
+                               
                   }
                    @if(User.IsInRole("owner"))
                   {
@@ -35,19 +29,13 @@
                 <th> Address</th>
                 <th> Number</th>
                 
-                 <th> PetName</th>
-                 <th> PetType</th>
-                 <th> PetColor</th>
-                 <th> PetBreed</th>
-                  <th>BloodType</th>
-                  <th>Gender</th>
-                   <th>BirthDate</th>
+                 
                   }
                 
                 
-                <th> Concern</th>
-                <th> DateOfAppointment</th>
-
+               
+                <th>DateOfAppointment</th>
+              
                 
                 @if(User.IsInRole("recept"))
                   {
@@ -76,13 +64,7 @@
 	                <td>@product.Address</td>
 	                <td>@product.Number</td>
 	                
-	                 <td>@product.PetName</td>
-	                 <td>@product.Type</td>
-	                 <td>@product.Color</td>
-	                 <td>@product.Breed</td>
-	                  <td>@product.Bloodtype</td>
-	                <td>@product.Gender</td>
-	                <td>@product.Bdate</td>
+	                 
 	                }
 	                
 	                 @if(User.IsInRole("owner"))
@@ -91,16 +73,11 @@
 	                <td>@product.Address</td>
 	                <td>@product.Number</td>
 	                
-	                 <td>@product.PetName</td>
-	                 <td>@product.Type</td>
-	                 <td>@product.Color</td>
-	                 <td>@product.Breed</td>
-	                  <td>@product.Bloodtype</td>
-	                <td>@product.Gender</td>
-	                <td>@product.Bdate</td>
+	                 
 	                }
-	                <td>@product.Concern</td>
+	                
 	                <td>@product.Dayofappointment</td>
+	               
 
 
                     @if(User.IsInRole("recept"))
@@ -109,7 +86,14 @@
 	                 }
 	                 @if(User.IsInRole("customer"))
                      {
+                     if(@product.Status == "Approved")
+                     {
+	                <td> <button type="submit" class="btn btn-warning btn-sm" disabled>Cancel Appoinment</button></td>
+                     }
+                     if(@product.Status != "Approved")
+                     {
 	                <td><a href="/Appointment/Delete/@product.Id" class="btn btn-warning btn-sm" onclick="return confirm('Are you sure to Cancel your appointment?')">Cancel Appoinment</a></td>
+	                 }
 	                 }
 	              
 	               

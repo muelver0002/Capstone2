@@ -41,6 +41,7 @@ namespace SharpDevelopMVC4.Models
 		
 		public string Bdate { get; set; }
 		
+		public string Status { get; set;}
 		
 	}
 }

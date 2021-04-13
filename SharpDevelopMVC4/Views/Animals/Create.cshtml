@@ -19,7 +19,7 @@
                 </div>  
                 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary" onclick="this.form.submit(); this.disabled = true;">Add</button>
                      <a href="/Home/index" class="btn btn-secondary ">Cancel</a>
                      <p style="color:red">@ViewBag.message</p>
                 </div>

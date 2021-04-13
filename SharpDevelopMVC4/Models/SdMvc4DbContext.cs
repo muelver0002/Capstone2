@@ -46,6 +46,10 @@ namespace SharpDevelopMVC4.Models
         public DbSet<Recept> Recepts { get; set; }
         
         public DbSet<Medicine> Medicines { get; set;}
+        
+        public DbSet<Address> Addreses { get; set; }
+        
+        public DbSet<Salesrecord> Salesrecords { get; set; }
     }
 
 
